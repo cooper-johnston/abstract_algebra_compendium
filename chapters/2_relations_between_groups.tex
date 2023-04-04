@@ -1,0 +1,287 @@
+\chapter{Relations Between Groups}
+
+\section{Group homomorphisms}
+
+\begin{defn}
+Let $ (G,\odot) $ and $ (G',\oslash) $ be groups. A mapping $ \phi:G\to G' $ is called a \defnem{group homomorphism} if for every $ x,y\in G $, we have
+\begin{equation*}
+    \phi(x\odot y)=\phi(x)\oslash\phi(y).
+\end{equation*}
+\end{defn}
+
+\begin{defn}
+A group homomorphism is called a(n)
+\begin{enumerate}
+    \item \defnem{monomorphism} when it is injective;
+    \item \defnem{epimorphism} when it is surjective; or
+    \item \defnem{isomorphism} when it is a bijection.
+\end{enumerate}
+A group $ G $ is called \defnem{isomorphic to} a group $ G' $ if there exists an isomorphism $ \phi:G\to G' $. We denote this by $ G\simeq G' $.
+\end{defn}
+
+\begin{prop}
+Let $ \phi:(G,\odot)\to(G',\oslash) $ be a homomorphism. Then,
+\begin{enumerate}
+    \item $ \phi(e_G)=e_{G'} $; and
+    \item for all $ g\in G $, we have $ \phi(g^{-1})=(\phi(g))^{-1} $.
+\end{enumerate}
+\end{prop}
+\begin{proof}~
+\begin{enumerate}
+    \item \todo{Do this proof!}
+    \item By definition, $ (\phi(g))^{-1} $ is the inverse of $ \phi(g) $ in $ G' $. We see
+    \begin{equation*}
+        \phi(g^{-1})\oslash\phi(g)=\phi(g^{-1}\odot g)=\phi(e_G)=e_G',
+    \end{equation*}
+    so $ \phi(g^{-1}) $ is also the inverse of $ \phi(g) $ in $ G' $. Hence, by uniqueness of the inverse,
+    \begin{equation*}
+        \phi(g^{-1})=(\phi(g))^{-1}. \qedhere
+    \end{equation*}
+\end{enumerate}
+\end{proof}
+
+\begin{defn}
+Let $ \phi:G\to G' $ be a homomorphism. The set 
+\begin{equation*}
+    \im(\phi)=\{\phi(g)\mid g\in G\}
+\end{equation*}
+is called the \defnem{image} of $ \phi $.
+\end{defn}
+
+\begin{prop}
+Let $ \phi:G\to G' $ be a homomorphism. Then, $ \im(\phi) $ is a subgroup of $ G' $.
+\end{prop}
+\begin{proof}
+Let $ x,y\in\im(\phi) $. Then, there exist some $ u,v\in G $ such that $ \phi(u)=x $ and $ \phi(v)=y $, so
+\begin{equation*}
+    xy^{-1}=\phi(u)(\phi(v))^{-1}=\phi(u)\,\phi(v^{-1})=\phi(uv^{-1}).
+\end{equation*}
+Since $ uv^{-1}\in G $, we see $ xy^{-1}\in\im(\phi) $. Hence, $ \im(\phi) $ is a subgroup of $ G' $.
+\end{proof}
+
+\begin{defn}
+Let $ \phi:G\to G' $ be a homomorphism. The set
+\begin{equation*}
+    \ker(\phi)=\{g\in G\mid\phi(g)=e_G'\}
+\end{equation*}
+is called the \defnem{kernel} of $ \phi $.
+\end{defn}
+
+\begin{thm}\label{thm:monomorphism}
+Let $ \phi:G\to G' $ be a homomorphism. Then, $ \phi $ is a monomorphism if and only if $ \ker(\phi)=\{e_G\} $.
+\end{thm}
+\begin{proof}~
+\begin{enumerate}
+    \item[($ \Rightarrow $)] Suppose $ \phi $ is injective. Since $ \phi(e_G)=e_{G'} $, we know $ \{e_G\}\subseteq\ker(\phi) $. Let $ x\in\ker(\phi) $. Then, $ \phi(x)=e_{G'}=\phi(e_G) $, so since $ \phi $ is injective, $ x=e_G $. Hence, $ \{e_G\}=\ker(\phi) $.
+
+    \item[($ \Leftarrow $)] Suppose $ \ker(\phi)=\{e_G\} $. Let $ x,y\in G $ such that $ \phi(x)=\phi(y) $. Then,
+    \begin{equation*}
+        e_{G'}=\phi(x)(\phi(x))^{-1}=\phi(y)(\phi(x))^{-1}=\phi(y)\,\phi(x^{-1})=\phi(yx^{-1}).
+    \end{equation*}
+    Thus, $ yx^{-1}\in\ker(\phi) $, so $ yx^{-1}=e_G $, which implies $ y=x $. Hence, $ \phi $ is injective.\qedhere
+\end{enumerate}
+\end{proof}
+
+\begin{thm}~
+\begin{enumerate}
+    \item Let $ \phi:G\to G' $ be a homomorphism. Then, $ \ker(\phi) $ is a normal subgroup of $ G $.
+
+    \item Let $ G $ be a group and $ H $ be a subgroup of $ G $. Then, $ H $ is a normal subgroup of $ G $ if and only if there exists an epimorphism $ \phi:G\to G' $ for some group $ G' $ such that $ H=\ker(\phi) $.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+\todo{Do this proof!}
+\end{proof}
+
+\begin{thm}
+Let $ \phi:G\to G' $ be an isomorphism. Then, $ \phi^{-1} $ is an isomorphism.
+\end{thm}
+\begin{proof}
+Let $ \odot $ denote the law of composition for group $ G $ and $ \oslash $ denote the law for $ G' $, let $ f=\phi^{-1} $, and let $ x,y\in G' $.  $ f $ is clearly well-defined, and we see
+\begin{equation*}
+    \phi(f(x)\odot f(y))=\phi(f(x))\oslash\phi(f(y))=x\oslash y=\phi(f(x\oslash y)).
+\end{equation*}
+Since $ \phi $ is injective, this implies $ f(x)\odot f(y)=f(x\oslash y) $, so $ f $ is a homomorphism. Injectivity and surjectivity can be easily verified. Hence, $ f $ is an isomorphism.
+\end{proof}
+
+\begin{thm}[Fundamental theorem on homomorphisms]
+Let $ \phi:G\to G' $ be a homomorphism. Then, the mapping
+\begin{equation*}
+    \begin{array}{rccc}
+        \psi: & G/\ker(\phi) & \to & \im(\phi) \\
+        & g\ker(\phi) & \mapsto & \phi(g)
+    \end{array}
+\end{equation*}
+is an isomorphism.
+\end{thm}
+\begin{proof}
+We have four criteria for $ \psi $ to be an isomorphism:
+\begin{enumerate}
+    \item Let $ g,h $ be such that $ g\ker(\phi)=h\ker(\phi) $. Then, $ h^{-1}g\in\ker(\phi) $, so
+    \begin{align*}
+        \phi(h^{-1}g) &= e_{G'} \\
+        (\phi(h))^{-1}\phi(g) &= e_{G'} \\
+        \phi(g) &= \phi(h).
+    \end{align*}
+    Thus, $ \psi $ is well-defined.
+
+    \item Let $ g\ker(\phi),h\ker(\phi)\in G/\ker(\phi) $. Then,
+    \begin{align*}
+        \psi(g\ker(\phi)\,h\ker(\phi)) &= \psi((gh)\ker(\phi))=\phi(gh)=\phi(g)\,\phi(h) \\
+        &= \psi(g\ker(\phi))\,\psi(h\ker(\phi)),
+    \end{align*}
+    so $ \psi $ is a homomorphism.
+
+    \item Let $ g\ker(\phi)\in\ker(\psi) $. Then, $ \psi(g\ker(\phi))=e_{G'} $, so $ g\in\ker(\phi) $, which implies $ g\ker(\phi)=\ker(\phi) $. Thus, by Theorem \ref{thm:monomorphism}, $ \psi $ is injective.
+
+    \item $ \psi $ is surjective by construction since it maps to $ \im(\phi) $.
+\end{enumerate}
+Hence, $ \psi $ is an isomorphism.
+\end{proof}
+
+This theorem is also known as the first isomorphism theorem.
+
+\section{Permutation groups}
+
+\begin{prop}\label{prop:permutations}
+Let $ X $ be a set, and let $ \mathcal{S}(X) $ be the set of all bijections from $ X $ to $ X $. Then, $ (\mathcal{S}(X),\circ) $, where $ \circ $ is composition of mappings, is a group.
+\end{prop}
+\begin{proof}
+\todo{Do this proof!}
+\end{proof}
+
+\begin{defn}
+Take $ \mathcal{S}(X) $ as defined in Proposition \ref{prop:permutations} for some set $ X $. A subgroup of $ \mathcal{S}(X) $ is called a \defnem{permutation group}. Any mapping in such a group is called a \defnem{permutation}.
+\end{defn}
+
+The neutral element of a permutation group is naturally the identity mapping, which we will denote $ \id $.
+
+\begin{defn}
+Let $ A=\{1,2,\ldots,n\} $ for some $ n\in\mathbb{N} $. Then, $ \mathcal{S}_n=\mathcal{S}(A) $ is called the \defnem{symmetric group} on $ n $ elements.
+\end{defn}
+
+Note that for any $ n\in\mathbb{N} $, we have $ \lvert\mathcal{S}_n\rvert=n! $. This may be familiar if you recall the notion of a permutation of a set as a rearrangement of its elements. Consider the following permutation $ \sigma\in\mathcal{S}_5 $:
+\begin{align*}
+    1 &\mapsto 3 \\
+    2 &\mapsto 2 \\
+    3 &\mapsto 5 \\
+    4 &\mapsto 4 \\
+    5 &\mapsto 1.
+\end{align*}
+We will represent it with the notation
+\begin{equation*}
+    \sigma=
+    \begin{pmatrix}
+        1 & 2 & 3 & 4 & 5 \\
+        3 & 2 & 5 & 4 & 1
+    \end{pmatrix}.
+\end{equation*}
+
+\begin{defn}
+Let $ \sigma=\mathcal{S}_n $. The set
+\begin{equation*}
+    \supp(\sigma)=\{i\in\{1,2,\ldots,n\}\mid\sigma(i)\neq i\}
+\end{equation*}
+is called the \defnem{support} of $ \sigma $.
+\end{defn}
+
+\begin{prop}
+Let $ \sigma,\tau\in\mathcal{S}_n $. If $ \supp(\sigma)\cap\supp(\tau)=\varnothing $, then $ \sigma\circ\tau=\tau\circ\sigma $.
+\end{prop}
+\begin{proof}
+Let $ i\in\{1,2,\ldots,n\} $. We have three cases:
+\begin{enumerate}
+    \item Suppose $ i\notin\supp(\sigma)\cup\supp(\tau) $. Then, $ \sigma(i)=\tau(i)=i $, so
+    \begin{align*}
+        (\sigma\circ\tau)(i) &= \sigma(\tau(i))=\sigma(i)=i=\tau(i)=\tau(\sigma(i))=(\tau\circ\sigma)(i).
+    \end{align*}
+
+    \item Suppose $ i\in\supp(\sigma) $. Then, $ i\notin\supp(\tau) $, so
+    \begin{equation*}
+        (\sigma\circ\tau)(i)=\sigma(\tau(i))=\sigma(i),
+    \end{equation*}
+    and since $ i\in\supp(\sigma) $, we have $ \sigma(i)\in\supp(\sigma) $, so $ \sigma(i)\notin\supp(\tau) $. Thus,
+    \begin{equation*}
+        (\tau\circ\sigma)(i)=\tau(\sigma(i))=\sigma(i)=(\sigma\circ\tau)(i).
+    \end{equation*}
+
+    \item If $ i\in\supp(\tau) $, the proof can be done in the same way as in the above case.
+\end{enumerate}
+Hence, $ \sigma\circ\tau=\tau\circ\sigma $.
+\end{proof}
+
+\begin{thm}[Cayley's theorem]
+Every group is isomorphic to a permutation group.
+\end{thm}
+\begin{proof}
+    \todo{Do this proof!}
+\end{proof}
+
+\subsection*{Cycles}
+
+\begin{defn}
+An element $ \sigma\in\mathcal{S}_n $ is called a \defnem{cycle} if there exists some $ x\in\{1,2,\ldots,n\} $ such that $ \supp(\sigma)=\{\sigma^i(x)\mid i\in\mathbb{N}\} $. Let $ l=\lvert\supp(\sigma)\rvert $. We denote the cycle
+\begin{equation*}
+    \left(x,\sigma(x),\ldots,\sigma^{l-1}(x)\right)
+\end{equation*}
+where $ l $ is called its \defnem{length}. A cycle of length 2 is called a \defnem{transposition}.
+\end{defn}
+
+\begin{prop}
+Let $ \sigma $ be a cycle of length $ l $. Then, $ \ord(\sigma)=l $.
+\end{prop}
+
+This follows by construction.
+
+\begin{prop}\label{prop:orbits}
+Let $ \sigma\in\mathcal{S}_n $, and let $ A=\{1,2,\ldots,n\} $. Then, the relation $ \sim $ on $ A $ defined such that for all $ a,b\in A $,
+\begin{equation*}
+    a\sim b \iff \text{there exists some }k\in\mathbb{Z}\text{ such that }b=\sigma^k(a)
+\end{equation*}
+is an equivalence relation.
+\end{prop}
+\begin{proof}
+We have three criteria for an equivalence relation:
+\begin{enumerate}
+    \item Since $ a=\sigma^0(a) $, we have $ a\sim a $ (reflexive).
+    \item Suppose $ a\sim b $. Then, $ b=\sigma^k(a) $ for some $ k\in\mathbb{Z} $, so $ a=\sigma^{-k}(b) $. Thus, $ b\sim a $ (symmetric).
+    \item Let $ c\in A $. Suppose $ a\sim b $ and $ b\sim c $. Then, $ b=\sigma^k(a) $ and $ c=\sigma^m(b) $ for some $ k,m\in\mathbb{Z} $, so $ c=\sigma^m(\sigma^k(a))=\sigma^{m+k}(a) $. Thus, $ a\sim c $ (transitive).\qedhere
+\end{enumerate}
+\end{proof}
+
+\begin{cor}[Alternative definition of a cycle]
+Take $ \sim $ as defined in Proposition \ref{prop:orbits} for some $ \sigma\in\mathcal{S}_n $. Then, $ \sigma $ is a cycle if and only if $ \sim $ has at most one equivalence class containing more than one element.
+\end{cor}
+
+\begin{thm}\label{thm:cycle_decomp}
+Let $ \sigma\in\mathcal{S}_n $. Then, there exist some unique cycles $ \tau_1,\tau_2,\ldots,\tau_k $ with disjoint supports such that $ \sigma=\tau_1\circ\tau_2\circ\cdots\circ\tau_k $. In other words, every permutation of a finite set can be decomposed as the product of unique cycles with disjoint supports.
+\end{thm}
+\begin{proof}
+Let $ A_1,A_2,\ldots,A_k $ be the equivalence classes of $ \sim $, and let $ \tau_1,\tau_2,\ldots,\tau_k $ be the cycles defined by these equivalence classes, respectively. We see $ \sigma=\tau_1\circ\tau_2\circ\cdots\circ\tau_k $, and since $ A_1,A_2,\ldots,A_k $ are necessarily disjoint, $ \tau_1,\tau_2,\ldots,\tau_k $ have disjoint supports.
+\end{proof}
+
+\begin{defn}
+Let $ \sigma\in\mathcal{S}_n $ with decomposition $ \sigma=\tau_1\circ\tau_2\circ\cdots\circ\tau_k $ as given by Theorem \ref{thm:cycle_decomp}. Let $ l_1,l_2,\ldots,l_k $ denote the lengths of $ \tau_1,\tau_2,\ldots,\tau_k $, respectively, where $ l_1\geq l_2\geq\cdots\geq l_k $. The sequence $ (l_1,l_2,\ldots,l_k) $ is called the \defnem{type} of $ \sigma $.
+\end{defn}
+
+\begin{prop}
+Let $ \sigma\in\mathcal{S}_n $ with type $ (l_1,l_2,\ldots,l_k) $. Then,
+\begin{equation*}
+    \ord(\sigma)=\lcm\{l_1,l_2,\ldots,l_k\}.
+\end{equation*}
+\end{prop}
+\begin{proof}
+We can decompose $ \sigma $ into cycles as $ \sigma=\tau_1\circ\tau_2\circ\cdots\circ\tau_k $ where $ \tau_1,\tau_2,\ldots,\tau_k $ have length $ l_1,l_2,\ldots,l_k $, respectively. Since the $ \tau_i $s have disjoint supports, they commute, so for every $ m\in\mathbb{N} $, we have
+\begin{equation*}
+    \sigma^m=\tau_1^m\circ\tau_2^m\circ\cdots\circ\tau_k^m.
+\end{equation*}
+Since $ \ord(\tau_i)=l_i $ for $ 1\leq i\leq k $, we see that if $ \sigma^m=\id $, then $ m $ is a multiple of each of the $ l_i $s. Hence, by definition, $ \ord(\sigma) $ is the lowest such $ m $.
+\end{proof}
+
+\subsection*{Alternating groups}
+
+\subsection*{The dihedral group}
+
+\section{Finitely generated abelian groups}
+
+\section{Group action on a set}
