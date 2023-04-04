@@ -136,10 +136,11 @@
 \def\headingstyle{\bfseries}
 
 \titleformat{\chapter}[display]%
-    {\normalfont\headingstyle\huge}%
+    {\normalfont\headingstyle\Large}%
     {\chaptertitlename\ \thechapter}%
-    {16pt}%
-    {\Huge}
+    {0em}%
+    {\huge}
+\titlespacing*{\chapter}{0in}{0in}{1.5in}
 
 \titleformat{\section}%
     {\normalfont\headingstyle\Large}%
