@@ -133,23 +133,23 @@
 
 \RequirePackage{titlesec}
 
-\def\headingstyle{\bfseries}
+\newcommand{\coop@headingstyle}{\bfseries}
 
 \titleformat{\chapter}[display]%
-    {\normalfont\headingstyle\Large}%
+    {\normalfont\coop@headingstyle\Large}%
     {\chaptertitlename\ \thechapter}%
     {0em}%
     {\huge}
 \titlespacing*{\chapter}{0in}{0in}{1.5in}
 
 \titleformat{\section}%
-    {\normalfont\headingstyle\Large}%
+    {\normalfont\coop@headingstyle\Large}%
     {\llap{\thesection\hspace{0.6em}}}%
     {0em}%
     {}
 
 \titleformat{name=\section,numberless}%
-    {\normalfont\headingstyle\Large}%
+    {\normalfont\coop@headingstyle\Large}%
     {\llap{$ \blacktriangleright $\hspace{0.6em}}}%
     {0em}%
     {}
@@ -172,13 +172,20 @@
     {\topsep}               % space below
     {}                      % body font
     {}                      % indent
-    {\headingstyle}         % head font
+    {\coop@headingstyle}         % head font
     {.}                     % punctuation
     {0.5em}                 % space after head
-    {\llap{#2\hspace{0.8em}}#1\ifx&#3&\else{ \normalfont({\itshape#3})}\fi}
+    {%
+        \llap{#2\hspace{0.8em}}%
+        #1%
+        \ifx&#3&\else{ \normalfont({\itshape#3})}\fi%
+    }
 
 \newenvironment{sltn}%
-    {\begin{proof}[Solution]\renewcommand{\qedsymbol}{$ \square $}}%
+    {%
+        \begin{proof}[Solution]
+        \renewcommand{\qedsymbol}{$ \square $}
+    }%
     {\end{proof}}
 
 % Links -----------------------------------------------------------------------
