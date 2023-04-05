@@ -140,7 +140,7 @@
     {\chaptertitlename\ \thechapter}%
     {0em}%
     {\huge}
-\titlespacing*{\chapter}{0in}{0in}{1.5in}
+\titlespacing*{\chapter}{0in}{-50pt}{1.5in}
 
 \titleformat{\section}%
     {\normalfont\coop@headingstyle\Large}%
