@@ -117,8 +117,8 @@
 \RequirePackage{enumitem}
 
 \setlist[enumerate]{
-    listparindent=\parindent,
-    parsep=\parsep,
+    listparindent=16pt,
+    parsep=0pt,
     itemsep=10pt,
 	labelindent=0in,
 	labelwidth=0.35in,
@@ -176,6 +176,10 @@
     {.}                     % punctuation
     {0.5em}                 % space after head
     {\llap{#2\hspace{0.8em}}#1\ifx&#3&\else{ \normalfont({\itshape#3})}\fi}
+
+\newenvironment{sltn}%
+    {\begin{proof}[Solution]\renewcommand{\qedsymbol}{$ \square $}}%
+    {\end{proof}}
 
 % Links -----------------------------------------------------------------------
 

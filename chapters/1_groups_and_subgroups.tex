@@ -322,17 +322,18 @@ and, similarly, $ gH\oslash H=gH $, so we have the neutral element $ H $. Hence,
 
 \sectionnumberless{Solved exercises}
 
-\begin{exer}
 Determine whether the following are groups, and show why or why not.
-
-\begin{enumerate}
-
-\item Consider $ (\{1,0,-1\},+) $ where $ + $ is standard addition.
-
+\begin{exer}
+Consider $ (\{1,0,-1\},+) $ where $ + $ is standard addition.
+\end{exer}
+\begin{sltn}
 Notice $ 1+1=2\notin\{1,0,-1\} $, so $ (\{1,0,-1\},+) $ is not a group.
+\end{sltn}
 
-\item Consider $ (\mathbb{R},\odot) $ where $ \odot $ is defined such that for $ x,y\in\mathbb{R} $, we have $ x\odot y=xy+(x^2-1)(y^2-1) $.
-
+\begin{exer}
+Consider $ (\mathbb{R},\odot) $ where $ \odot $ is defined such that for $ x,y\in\mathbb{R} $, we have $ x\odot y=xy+(x^2-1)(y^2-1) $.
+\end{exer}
+\begin{sltn}
 Notice
 \begin{align*}
     2\odot(3\odot 4) &= 2\odot\left((3)(4)+(3^2-1)(4^2-1)\right)=2\odot 132 \\
@@ -344,17 +345,23 @@ while
     &= (30)(4)+(30^2-1)(4^2-1)=13\,605,
 \end{align*}
 so $ \odot $ is not associative. Hence, $ (\mathbb{R},\odot) $ is not a group.
+\end{sltn}
 
-\item Consider $ (\mathbb{R}^+,\odot) $ where $ \odot $ is defined such that for $ x,y\in\mathbb{R}^+ $, we have $ x\odot y=\sqrt{x^2+y^2} $.
-
+\begin{exer}
+Consider $ (\mathbb{R}^+,\odot) $ where $ \odot $ is defined such that for $ x,y\in\mathbb{R}^+ $, we have $ x\odot y=\sqrt{x^2+y^2} $.
+\end{exer}
+\begin{sltn}
 Notice that for all $ x\in\mathbb{R}^+ $,
 \begin{equation*}
     x\odot 0=\sqrt{x^2+0^2}=\sqrt{x^2}=x,
 \end{equation*}
 so $ 0 $ is the neutral element under $ \odot $; however, $ 0\notin\mathbb{R}^+ $, so $ (\mathbb{R}^+,\odot) $ is not a group.
+\end{sltn}
 
-\item Consider $ (\mathbb{R}\setminus\{-1\},\odot) $ where $ \odot $ is defined such that for $ x,y\in\mathbb{R}\setminus\{-1\} $, we have $ x\odot y=x+y+xy $.
-
+\begin{exer}
+Consider $ (\mathbb{R}\setminus\{-1\},\odot) $ where $ \odot $ is defined such that for $ x,y\in\mathbb{R}\setminus\{-1\} $, we have $ x\odot y=x+y+xy $.
+\end{exer}
+\begin{sltn}
 Suppose there exists a pair $ (x,y) $ such that $ x\odot y=-1 $. Then,
 \begin{align*}
     x+y+xy &= -1 \\
@@ -379,9 +386,12 @@ so $ \odot $ is associative. Finally, notice that for all $ x\in\mathbb{R}\setmi
     &= \frac{x(1+x)-x}{1+x}-\frac{x^2}{1+x}=\frac{x^2}{1+x}-\frac{x^2}{1+x}=0
 \end{align*}
 (inverse). Hence, $ (\mathbb{R}\setminus\{-1\},\odot) $ is a group.
+\end{sltn}
 
-\item Consider $ (\mathcal{C},\cdot) $ where $ \mathcal{C}=\{z\in\mathbb{C}\mid\lvert c\rvert=1\} $ and $ \cdot $ is standard multiplication.
-
+\begin{exer}
+Consider $ (\mathcal{C},\cdot) $ where $ \mathcal{C}=\{z\in\mathbb{C}\mid\lvert c\rvert=1\} $ and $ \cdot $ is standard multiplication.
+\end{exer}
+\begin{sltn}
 Since $ \mathcal{C} $ is the unit circle, we can uniquely represent each $ z\in\mathcal{C} $ in polar form as $ z=e^{i\theta} $ for some $ \theta\in(-\pi,\pi] $, and we know $ e^{i\theta}\in\mathcal{C} $ for all $ \theta\in\mathbb{R} $. Let $ e^{i\theta_1},e^{i\theta_2}\in\mathcal{C} $. Then,
 \begin{equation*}
     e^{i\theta_1}\cdot e^{i\theta_2}=e^{i\theta_1+i\theta_2}=e^{i(\theta_1+\theta_2)}\in\mathcal{C}
@@ -391,9 +401,12 @@ so standard multiplication is a law of composition on $ \mathcal{C} $, and we kn
     e^{i\theta}\cdot e^{i(-\theta)}=e^{i\theta-i\theta}=e^0=1
 \end{equation*}
 (inverse). Hence, $ (\mathcal{C},\cdot) $ is a group.
+\end{sltn}
 
-\item Consider $ (\mathrm{SL}_n(\mathbb{R}),\cdot) $ where $ \mathrm{SL}_n(\mathbb{R}) $ is the set of all $ n\times n $ matrices over $ \mathbb{R} $ with determinant 1 and $ \cdot $ is standard matrix multiplication.
-
+\begin{exer}
+Consider $ (\mathrm{SL}_n(\mathbb{R}),\cdot) $ where $ \mathrm{SL}_n(\mathbb{R}) $ is the set of all $ n\times n $ matrices over $ \mathbb{R} $ with determinant 1 and $ \cdot $ is standard matrix multiplication.
+\end{exer}
+\begin{sltn}
 Let $ A,B\in\mathrm{SL}_n(\mathbb{R}) $. Then,
 \begin{equation*}
     \det(AB)=\det(A)\,\det(B)=(1)(1)=1
@@ -403,8 +416,10 @@ so $ AB\in\mathrm{SL}_n(\mathbb{R}) $. Thus, standard matrix multiplication is a
     \det(A^{-1})=\frac{1}{\det(A)}=\frac{1}{1}=1
 \end{equation*}
 so $ A^{-1}\in\mathrm{SL}_n(\mathbb{R}) $. Hence, $ (\mathrm{SL}_n(\mathbb{R}),\cdot) $ is a group.
+\end{sltn}
 
-\item Consider $ (Q,\cdot) $ where $ Q=\{\pm I_2,\pm I,\pm J,\pm K\} $,
+\begin{exer}
+Consider $ (Q,\cdot) $ where $ Q=\{\pm I_2,\pm I,\pm J,\pm K\} $,
 \begin{align*}
     I_2&=
     \begin{bmatrix}
@@ -431,7 +446,8 @@ so $ A^{-1}\in\mathrm{SL}_n(\mathbb{R}) $. Hence, $ (\mathrm{SL}_n(\mathbb{R}),\
     \end{bmatrix},
 \end{align*}
 and $ \cdot $ is standard matrix multiplication.
-
+\end{exer}
+\begin{sltn}
 For $ I_2 $, $ I $, $ J $, and $ K $, we have the composition table
 \begin{equation*}
     \begin{array}{c|cccc}
@@ -454,9 +470,12 @@ so standard matrix multiplication is a law of composition on $ Q $. We also know
     (-I_2)^{-1}&=-I_2 & (-I)^{-1}&=I & (-J)^{-1}&=J & (-K)^{-1}&=K.
 \end{align*}
 Hence, $ (Q,\cdot) $ is a group.
+\end{sltn}
 
-\item Consider $ (H,\cdot) $ where $ H $ is the set of upper triangular $ 3\times 3 $ matrices over $ \mathbb{R} $ with all $ 1 $s on the diagonal and $ \cdot $ is standard matrix multiplication.
-
+\begin{exer}
+Consider $ (H,\cdot) $ where $ H $ is the set of upper triangular $ 3\times 3 $ matrices over $ \mathbb{R} $ with all $ 1 $s on the diagonal and $ \cdot $ is standard matrix multiplication.
+\end{exer}
+\begin{sltn}
 Let $ a,b,c,x,y,z\in\mathbb{R} $. Then,
 \begin{equation*}
     \begin{bmatrix}
@@ -493,33 +512,39 @@ so standard matrix multiplication is a law of composition on $ H $, and we know 
     \in H.
 \end{equation*}
 Hence, $ (H,\cdot) $ is a group.
+\end{sltn}
 
-\end{enumerate}
-\end{exer}
-
-\begin{exer}
 For each of the following, determine whether $ H $ is a subgroup of $ G $, and show why or why not.
 
-\begin{enumerate}
-
-\item Let $ G=(\mathbb{R},+) $ and $ H=\{-1,0,1\} $.
-
+\begin{exer}
+Let $ G=(\mathbb{R},+) $ and $ H=\{-1,0,1\} $.
+\end{exer}
+\begin{sltn}
 Consider $ 1+1=2\notin H $. Hence, $ H $ is not a subgroup of $ G $.
+\end{sltn}
 
-\item Let $ G=(\mathbb{R},+) $ and $ H=\mathbb{R}\setminus\{0\} $.
-
+\begin{exer}
+Let $ G=(\mathbb{R},+) $ and $ H=\mathbb{R}\setminus\{0\} $.
+\end{exer}
+\begin{sltn}
 The neutral element of $ G $ is $ 0\notin H $. Hence, $ H $ is not a subgroup of $ G $.
+\end{sltn}
 
-\item Let $ G=(\mathbb{C}\setminus\{0\},\cdot) $ and $ H=\mathbb{R}\setminus\{0\} $.
-
+\begin{exer}
+Let $ G=(\mathbb{C}\setminus\{0\},\cdot) $ and $ H=\mathbb{R}\setminus\{0\} $.
+\end{exer}
+\begin{sltn}
 Let $ h_1,h_2\in H=\mathbb{R}\setminus\{0\} $. Then, since $ h_1,h_2\neq 0 $, we have
 \begin{equation*}
     h_1h_2^{-1}=h_1\cdot\frac{1}{h_2}=\frac{h_1}{h_2}\in\mathbb{R}\setminus\{0\}=H.
 \end{equation*}
 Hence, $ H $ is a subgroup of $ G $.
+\end{sltn}
 
-\item Let $ G=(\mathbb{R}\setminus\{0\},\cdot) $ and $ H=\{-1,1\} $.
-
+\begin{exer}
+Let $ G=(\mathbb{R}\setminus\{0\},\cdot) $ and $ H=\{-1,1\} $.
+\end{exer}
+\begin{sltn}
 We see
 \begin{align*}
     (-1)^{-1}&=\frac{1}{-1}=-1, & 1^{-1}&=\frac{1}{1}=1
@@ -530,9 +555,12 @@ so
     1\cdot(-1)^{-1}&=1\cdot-1=-1\in H, & 1\cdot 1^{-1}&=1\cdot 1=1\in H.
 \end{align*}
 Hence, $ H $ is a subgroup of $ G $.
+\end{sltn}
 
-\item Let $ G=(\mathbb{C}\setminus\{0\},\cdot) $ and $ H=\left\{e^{i(2\pi k)/n}\mid k\in\{0,1,\ldots,n-1\}\right\} $ for some $ n\in\mathbb{N} $.
-
+\begin{exer}
+Let $ G=(\mathbb{C}\setminus\{0\},\cdot) $ and $ H=\left\{e^{i(2\pi k)/n}\mid k\in\{0,1,\ldots,n-1\}\right\} $ for some $ n\in\mathbb{N} $.
+\end{exer}
+\begin{sltn}
 Let $ h_1,h_2\in H $. Then, $ h_1=e^{i(2\pi k)/n} $ and $ h_2=e^{i(2\pi l)/n} $ for some $ k,l\in\{0,1,\ldots,n-1\} $, so
 \begin{equation*}
     h_2^{-1}=\left(e^{i(2\pi l)/n}\right)^{-1}=e^{-i(2\pi l)/n}
@@ -546,9 +574,12 @@ Let $ m=(k-l)\bmod n $. Then,
     h_1h_2^{-1}=e^{i(2\pi(k-l))/n}=e^{i(2\pi m)/n}\in H.
 \end{equation*}
 Hence, $ H $ is a subgroup of $ G $.
+\end{sltn}
 
-\item Let $ G=(\mathrm{GL}_n(\mathbb{R}),\cdot) $ where $ \mathrm{GL}_n(\mathbb{R}) $ is the set of all invertible $ n\times n $ matrices over $ \mathbb{R} $, and let $ H=(\mathrm{SL}_n(\mathbb{R}),\cdot) $.
-
+\begin{exer}
+Let $ G=(\mathrm{GL}_n(\mathbb{R}),\cdot) $ where $ \mathrm{GL}_n(\mathbb{R}) $ is the set of all invertible $ n\times n $ matrices over $ \mathbb{R} $, and let $ H=(\mathrm{SL}_n(\mathbb{R}),\cdot) $.
+\end{exer}
+\begin{sltn}
 Let $ A,B\in H=\mathrm{SL}_n(\mathbb{R}) $. Then,
 \begin{equation*}
     \det(A)=\det(B)=1\neq0
@@ -562,18 +593,15 @@ Therefore,
     \det(AB^{-1})=\det(A)\det(B^{-1})=1\cdot 1=1
 \end{equation*}
 so $ AB^{-1}\in H $. Hence, $ H $ is a subgroup of $ G $.
-
-\end{enumerate}
-\end{exer}
+\end{sltn}
 
 \begin{exer}
 Let $ G $ be a group, and let $ x\in G $ where $ x $ is of order $ k $. Prove that if $ m $ is an integer such that $ x^m=e_G $, then $ k\mid m $.
-
-\begin{proof}
+\end{exer}
+\begin{sltn}
 Since $ x $ is of order $ k $, we have by definition that $ k $ is the smallest positive integer such that $ x^k=e_G $. Suppose $ x^m=e_G $ for some $ m\in\mathbb{Z} $. We can rewrite $ m $ in terms of its Euclidean division by $ k $ as $ m=kn+r $ for some $ n,r\in\mathbb{Z} $ where $ 0\leq r<k $, giving us
 \begin{equation*}
     x^m=x^{kn+r}=x^{kn}x^r=(x^k)^n x^r=e_G^n x^r=x^r.
 \end{equation*}
 so $ x^r=e_G $. Since $ r<k $, then $ r=0 $, so $ m=nk $. Hence, $ k\mid m $.
-\end{proof}
-\end{exer}
+\end{sltn}

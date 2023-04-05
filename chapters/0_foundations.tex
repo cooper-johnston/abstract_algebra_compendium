@@ -86,61 +86,68 @@ Note that this does not address the fact that $ 4!\geq 2^4$.
 
 \sectionnumberless{Solved exercises}
 
-\begin{exer}
 For each of the following, find $ A\cap B $, $ A\cup B $, $ A\setminus B $, $ B\setminus A $, $ A\times B $, and $ B\times A $.
 
-\begin{enumerate}
-
-\item Let $ A=\{-1,1\} $ and $ B=\{1,2,3\} $. Then,
+\begin{exer}
+Let $ A=\{-1,1\} $ and $ B=\{1,2,3\} $.
+\end{exer}
+\begin{sltn}
+We have
 \begin{align*}
     A\cap B &= \{1\}, \\
     A\cup B &= \{-1,1,2,3\}, \\
     A\setminus B &= \{-1\}, \\
     B\setminus A &= \{2,3\}, \\
     A\times B &= \{(-1,1),(-1,2),(-1,3),(1,1),(1,2),(1,3)\}, \\
-    B\times A &= \{(1,-1),(1,1),(2,-1),(2,1),(3,-1),(3,1)\}.
+    B\times A &= \{(1,-1),(1,1),(2,-1),(2,1),(3,-1),(3,1)\}.\qedhere
 \end{align*}
+\end{sltn}
 
-\item Let $ A=[-1,1] $ and $ B=(0,3] $. Then,
+\begin{exer}
+Let $ A=[-1,1] $ and $ B=(0,3] $.
+\end{exer}
+\begin{sltn}
+We have
 \begin{align*}
     A\cap B &= (0,1], \\
     A\cup B &= [-1,3], \\
     A\setminus B &= [-1,0], \\
     B\setminus A &= (1,3], \\
     A\times B &= \{(a,b)\mid a\in[-1,1],b\in (0,3]\}, \\
-    B\times A &= \{(b,a)\mid b\in (0,3],a\in [-1,1]\}.
+    B\times A &= \{(b,a)\mid b\in (0,3],a\in [-1,1]\}.\qedhere
 \end{align*}
+\end{sltn}
 
-\item Let $ A=(1,3) $ and $ B=[0,\infty ) $. Then,
+\begin{exer}
+Let $ A=(1,3) $ and $ B=[0,\infty ) $.
+\end{exer}
+\begin{sltn}
+We have
 \begin{align*}
     A\cap B &= (1,3), \\
     A\cup B &= [0,\infty ), \\
     A\setminus B &= \varnothing, \\
     B\setminus A &= [0,1]\cup [3,\infty ), \\
     A\times B &= \{(a,b)\mid a\in(1,3),b\in [0,\infty )\}, \\
-    B\times A &= \{(b,a)\mid b\in [0,\infty ),a\in (1,3)\}.
+    B\times A &= \{(b,a)\mid b\in [0,\infty ),a\in (1,3)\}.\qedhere
 \end{align*}
+\end{sltn}
 
-\end{enumerate}
-\end{exer}
-
-\begin{exer}
 Let $ a,b,c\in\mathbb{N} $ where $ a $ and $ b $ are coprime. Prove the following.
 
-\begin{enumerate}
-
-\item If $ a\mid bc $, then $ a\mid c $.
-\begin{proof}
+\begin{exer}
+If $ a\mid bc $, then $ a\mid c $.
+\end{exer}
+\begin{sltn}
 Suppose $ a\mid bc $. Then, there exists some $ n\in\mathbb{Z} $ such that $ na=bc $, so $ b\mid na $. Now suppose $ n $ is not a multiple of $ b $. Then, $ a $ and $ b $ must share a common factor greater than 1, but $ a $ and $ b $ are coprime, so this is impossible. Therefore, $ n $ must be a multiple of $ b $; that is, there exists some $ k\in\mathbb{Z} $ such that $ n=kb $, so
 \begin{equation*}
-    na=bc \iff \frac{n}{b}a=c \iff \frac{bk}{b}a=c \iff ka=c \implies a\mid c. \qedhere
+    na=bc \iff \frac{n}{b}a=c \iff \frac{bk}{b}a=c \iff ka=c \implies a\mid c.\qedhere
 \end{equation*}
-\end{proof}
+\end{sltn}
 
-\item If $ a\mid c $ and $ b\mid c $, then $ ab\mid c $.
-\begin{proof}
-Suppose $ a\mid c $ and $ b\mid c $. Then, $ c $ is a multiple of $ a $, and $ c $ is a multiple of $ b $. Let $ p_1p_2\cdots p_n $ be the prime factorization of $ a $, and let $ q_1q_2\cdots q_k $ be the prime factorization of $ b $. Since $ a $ and $ b $ are coprime, we see $ \{p_1,p_2,\ldots,p_n\}\cap\{q_1,q_2,\ldots,q_k\}=\varnothing $, so the prime factorization of $ c $ must include all of the $ p_i $s and all of the $ q_i $s. Therefore, $ c $ is a multiple of $ p_1p_2\cdots p_nq_1q_2\cdots q_k=ab $, so $ ab\mid c $.
-\end{proof}
-
-\end{enumerate}
+\begin{exer}
+If $ a\mid c $ and $ b\mid c $, then $ ab\mid c $.
 \end{exer}
+\begin{sltn}
+Suppose $ a\mid c $ and $ b\mid c $. Then, $ c $ is a multiple of $ a $, and $ c $ is a multiple of $ b $. Let $ p_1p_2\cdots p_n $ be the prime factorization of $ a $, and let $ q_1q_2\cdots q_k $ be the prime factorization of $ b $. Since $ a $ and $ b $ are coprime, we see $ \{p_1,p_2,\ldots,p_n\}\cap\{q_1,q_2,\ldots,q_k\}=\varnothing $, so the prime factorization of $ c $ must include all of the $ p_i $s and all of the $ q_i $s. Therefore, $ c $ is a multiple of $ p_1p_2\cdots p_nq_1q_2\cdots q_k=ab $, so $ ab\mid c $.
+\end{sltn}
