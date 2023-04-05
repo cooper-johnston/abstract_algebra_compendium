@@ -140,17 +140,17 @@
     {\chaptertitlename\ \thechapter}%
     {0em}%
     {\huge}
-\titlespacing*{\chapter}{0in}{-50pt}{1.5in}
+\titlespacing*{\chapter}{0in}{-0.4in}{1.5in}
 
 \titleformat{\section}%
     {\normalfont\coop@headingstyle\Large}%
-    {\llap{\thesection\hspace{0.6em}}}%
+    {\llap{\thesection\hspace{8pt}}}%
     {0em}%
     {}
 
 \titleformat{name=\section,numberless}%
     {\normalfont\coop@headingstyle\Large}%
-    {\llap{$ \blacktriangleright $\hspace{0.6em}}}%
+    {\llap{$ \blacktriangleright $\hspace{8pt}}}%
     {0em}%
     {}
 
@@ -176,7 +176,7 @@
     {.}                     % punctuation
     {0.5em}                 % space after head
     {%
-        \llap{#2\hspace{0.8em}}%
+        \llap{#2\hspace{8pt}}%
         #1%
         \ifx&#3&\else{ \normalfont({\itshape#3})}\fi%
     }
