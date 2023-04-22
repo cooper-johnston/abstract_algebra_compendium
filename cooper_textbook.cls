@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{cooper_textbook}[2023/04/04 Cooper's Textbook Class]
+\ProvidesClass{cooper_textbook}[2023/04/22 Cooper's Textbook Class]
 
 % Early requirements ----------------------------------------------------------
 
@@ -55,13 +55,15 @@
     \setlength{\coop@paperwidth}{210mm}
     \setlength{\coop@paperheight}{297mm}
     \setlength{\coop@topmargin}{(\coop@paperheight-\coop@textheight)/2}
-    \setlength{\coop@marginpar}{\coop@paperwidth-\coop@bindingoffset-\coop@margin-\coop@textwidth-5mm}
+    \setlength{\coop@marginpar}%
+        {\coop@paperwidth-\coop@bindingoffset-\coop@margin-\coop@textwidth-5mm}
 }
 \DeclareOption{letterpaper}{
     \setlength{\coop@paperwidth}{8.5in}
     \setlength{\coop@paperheight}{11in}
     \setlength{\coop@topmargin}{(\coop@paperheight-\coop@textheight)/2}
-    \setlength{\coop@marginpar}{\coop@paperwidth-\coop@bindingoffset-\coop@margin-\coop@textwidth-5mm}
+    \setlength{\coop@marginpar}%
+        {\coop@paperwidth-\coop@bindingoffset-\coop@margin-\coop@textwidth-5mm}
 }
 
 % Other options ---------------------------------------------------------------
