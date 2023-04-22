@@ -142,18 +142,6 @@
     {\huge}
 \titlespacing*{\chapter}{0in}{-0.4in}{1.5in}
 
-\titleformat{\section}%
-    {\normalfont\coop@headingstyle\Large}%
-    {\llap{\thesection\hspace{8pt}}}%
-    {0em}%
-    {}
-
-\titleformat{name=\section,numberless}%
-    {\normalfont\coop@headingstyle\Large}%
-    {\llap{$ \blacktriangleright $\hspace{8pt}}}%
-    {0em}%
-    {}
-
 % Command for unnumbered sections
 \newcommand{\sectionnumberless}[1]{%
     \section*{#1}%
@@ -166,20 +154,6 @@
 \RequirePackage{amsmath, amssymb, amsthm}
 
 \renewcommand{\qedsymbol}{$ \blacksquare $}
-
-\newtheoremstyle{marginnums}
-    {\topsep}               % space above
-    {\topsep}               % space below
-    {}                      % body font
-    {}                      % indent
-    {\coop@headingstyle}         % head font
-    {.}                     % punctuation
-    {0.5em}                 % space after head
-    {%
-        \llap{#2\hspace{8pt}}%
-        #1%
-        \ifx&#3&\else{ \normalfont({\itshape#3})}\fi%
-    }
 
 \newenvironment{sltn}%
     {%
