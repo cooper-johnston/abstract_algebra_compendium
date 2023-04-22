@@ -136,6 +136,12 @@
 
 \RequirePackage{fancyhdr}
 
+% Chapter and section labels in header
+\renewcommand{\sectionmark}[1]%
+    {\markright{\thesection\quad#1}}
+\renewcommand{\chaptermark}[1]%
+    {\markboth{\if@mainmatter\thechapter\quad\fi#1}{}}
+
 \newcommand{\hfformat}[1]{\normalfont#1}
 
 \fancypagestyle{plain}{
@@ -145,9 +151,9 @@
 }
 \fancypagestyle{fancy}{
 	\fancyhf{}
-	\renewcommand{\headrulewidth}{0.5pt}
-    \fancyhead[LO]{\hfformat{\nouppercase{\leftmark}}}
-    \fancyhead[RE]{\hfformat{\nouppercase{\rightmark}}}
+	\renewcommand{\headrulewidth}{0pt}
+    \fancyhead[LO]{\hfformat{\nouppercase{\rightmark}}}
+    \fancyhead[RE]{\hfformat{\nouppercase{\leftmark}}}
     \fancyhead[LE,RO]{\hfformat{\thepage}}
 }
 \pagestyle{fancy}
