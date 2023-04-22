@@ -180,7 +180,7 @@
     {\chaptertitlename\ \thechapter}%
     {0em}%
     {\huge}
-\titlespacing*{\chapter}{0pt}{-50pt}{40mm}
+\titlespacing*{\chapter}{0pt}{-24pt}{40mm}
 
 % Command for unnumbered sections
 \newcommand{\sectionnumberless}[1]{%
