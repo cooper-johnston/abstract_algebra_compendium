@@ -10,41 +10,65 @@
 % Lengths
 \RequirePackage{calc}
 
-% Options and base class ------------------------------------------------------
+% Base class, paper size, and margins -----------------------------------------
 
 \def\baseclass{book}
-
-% Color or grayscale highlighting
-\newcommand{\coop@hlcolor}{yellow}
-\DeclareOption{nocolor}{\renewcommand{\coop@hlcolor}{lightgray}}
 
 % Binding offset options
 \newcommand{\coop@bindingoffset}{0in}
 \DeclareOption{binding}{\renewcommand{\coop@bindingoffset}{0.25in}}
 
-% Paper size options
+% Base paper dimensions
 \newlength{\coop@basepaperwidth}
 \setlength{\coop@basepaperwidth}{176mm} % B5 width
 \newlength{\coop@basepaperheight}
 \setlength{\coop@basepaperheight}{250mm} % B5 height
 
+% Margin size for base paper
 \newlength{\coop@margin}
 \setlength{\coop@margin}{25mm}
 
 \newlength{\coop@textwidth}
 \setlength{\coop@textwidth}{%
-    \coop@basepaperwidth-\coop@bindingoffset-\coop@margin-\coop@margin%
+    \coop@basepaperwidth-\coop@margin-\coop@margin%
 }
 \newlength{\coop@textheight}
 \setlength{\coop@textheight}{%
     \coop@basepaperheight-\coop@margin-\coop@margin%
 }
 
-\newcommand{\coop@papersize}{b5paper}
+% Default paper dimensions (B5)
+\newlength{\coop@paperwidth}
+\setlength{\coop@paperwidth}{176mm} % B5 width
+\newlength{\coop@paperheight}
+\setlength{\coop@paperheight}{250mm} % B5 heght
+\newlength{\coop@marginpar}
+\setlength{\coop@marginpar}{20mm}
 
-\DeclareOption{b5paper}{}
-\DeclareOption{a4paper}{\renewcommand{\coop@papersize}{a4paper}}
-\DeclareOption{letterpaper}{\renewcommand{\coop@papersize}{letterpaper}}
+\newlength{\coop@topmargin}
+
+% Options
+\DeclareOption{b5paper}{
+    \setlength{\coop@topmargin}{(\coop@paperheight-\coop@textheight)/2}
+}
+\DeclareOption{a4paper}{
+    \setlength{\coop@paperwidth}{210mm}
+    \setlength{\coop@paperheight}{297mm}
+    \setlength{\coop@topmargin}{(\coop@paperheight-\coop@textheight)/2}
+    \setlength{\coop@marginpar}{40mm}
+}
+\DeclareOption{letterpaper}{
+    \setlength{\coop@paperwidth}{8.5in}
+    \setlength{\coop@paperheight}{11in}
+    \setlength{\coop@topmargin}{(\coop@paperheight-\coop@textheight)/2}
+    \setlength{\coop@marginpar}{40mm}
+}
+
+% Other options ---------------------------------------------------------------
+
+% Color or grayscale highlighting
+\newcommand{\coop@hlcolor}{yellow}
+\DeclareOption{nocolor}{\renewcommand{\coop@hlcolor}{lightgray}}
 
 % Suppress other book class options
 \DeclareOption{a5paper}{\OptionNotUsed}
@@ -59,16 +83,18 @@
 \ProcessOptions\relax
 \LoadClass{\baseclass}
 
-% Implementing paper size -----------------------------------------------------
+% Implementing geometry -------------------------------------------------------
 
 \RequirePackage{geometry}
 \geometry{
-    \coop@papersize,
+    paperwidth=\coop@paperwidth,
+    paperheight=\coop@paperheight,
     inner=\coop@margin,
-    top=\coop@margin,
+    top=\coop@topmargin,
     bindingoffset=\coop@bindingoffset,
     textwidth=\coop@textwidth,
     textheight=\coop@textheight,
+    marginpar=\coop@marginpar
 }
 
 % Highlighting and color ------------------------------------------------------
@@ -90,9 +116,10 @@
     \begin{titlepage}%
         \newgeometry{
             left=\coop@margin,
-            vmargin=\coop@margin,
+            top=\coop@topmargin,
             bindingoffset=\coop@bindingoffset,
-            textwidth=\textwidth
+            textwidth=110mm,
+            textheight=\coop@textheight
         }
         \raggedright
         \Large\@author\par
