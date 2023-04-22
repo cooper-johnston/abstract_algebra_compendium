@@ -7,6 +7,9 @@
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
 
+% Lengths
+\RequirePackage{calc}
+
 % Options and base class ------------------------------------------------------
 
 \def\baseclass{book}
@@ -20,19 +23,28 @@
 \DeclareOption{binding}{\renewcommand{\coop@bindingoffset}{0.25in}}
 
 % Paper size options
-\newcommand{\coop@papersize}{a4paper}
-\newcommand{\coop@innermargin}{1.25in}
-\newcommand{\coop@outermargin}{2in}
-\newcommand{\coop@vmargin}{1.5in}
+\newlength{\coop@basepaperwidth}
+\setlength{\coop@basepaperwidth}{176mm} % B5 width
+\newlength{\coop@basepaperheight}
+\setlength{\coop@basepaperheight}{250mm} % B5 height
 
-\DeclareOption{a4paper}{}
-\DeclareOption{letterpaper}{\renewcommand{\coop@papersize}{letterpaper}}
-\DeclareOption{b5paper}{
-    \renewcommand{\coop@papersize}{b5paper}
-    \renewcommand{\coop@innermargin}{1in}
-    \renewcommand{\coop@outermargin}{1in}
-    \renewcommand{\coop@vmargin}{1in}
+\newlength{\coop@margin}
+\setlength{\coop@margin}{25mm}
+
+\newlength{\coop@textwidth}
+\setlength{\coop@textwidth}{%
+    \coop@basepaperwidth-\coop@bindingoffset-\coop@margin-\coop@margin%
 }
+\newlength{\coop@textheight}
+\setlength{\coop@textheight}{%
+    \coop@basepaperheight-\coop@margin-\coop@margin%
+}
+
+\newcommand{\coop@papersize}{b5paper}
+
+\DeclareOption{b5paper}{}
+\DeclareOption{a4paper}{\renewcommand{\coop@papersize}{a4paper}}
+\DeclareOption{letterpaper}{\renewcommand{\coop@papersize}{letterpaper}}
 
 % Suppress other book class options
 \DeclareOption{a5paper}{\OptionNotUsed}
@@ -52,10 +64,11 @@
 \RequirePackage{geometry}
 \geometry{
     \coop@papersize,
-    inner=\coop@innermargin,
-    outer=\coop@outermargin,
-    vmargin=\coop@vmargin,
-    bindingoffset=\coop@bindingoffset
+    inner=\coop@margin,
+    top=\coop@margin,
+    bindingoffset=\coop@bindingoffset,
+    textwidth=\coop@textwidth,
+    textheight=\coop@textheight,
 }
 
 % Highlighting and color ------------------------------------------------------
@@ -76,10 +89,10 @@
 \renewcommand{\maketitle}{%
     \begin{titlepage}%
         \newgeometry{
-            left=1in,
-            vmargin=\coop@vmargin,
+            left=\coop@margin,
+            vmargin=\coop@margin,
             bindingoffset=\coop@bindingoffset,
-            textwidth=4.5in
+            textwidth=\textwidth
         }
         \raggedright
         \Large\@author\par
