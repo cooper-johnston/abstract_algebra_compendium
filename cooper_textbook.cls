@@ -15,8 +15,8 @@
 \def\baseclass{book}
 
 % Binding offset options
-\newcommand{\coop@bindingoffset}{0in}
-\DeclareOption{binding}{\renewcommand{\coop@bindingoffset}{0.25in}}
+\newcommand{\coop@bindingoffset}{0mm}
+\DeclareOption{binding}{\renewcommand{\coop@bindingoffset}{6mm}}
 
 % Base paper dimensions
 \newlength{\coop@basepaperwidth}
@@ -123,7 +123,7 @@
         }
         \raggedright
         \Large\@author\par
-        \vspace{1.5in}
+        \vspace{40mm}
         \Huge\@title\par
         \vfill
         \normalsize\@titlepagenotes
@@ -161,8 +161,8 @@
     parsep=0pt,
     itemsep=10pt,
 	labelindent=0in,
-	labelwidth=0.35in,
-	labelsep*=0.15in,
+	labelwidth=8mm,
+	labelsep*=4mm,
 	leftmargin=!,
 	align=left
 }
@@ -180,7 +180,7 @@
     {\chaptertitlename\ \thechapter}%
     {0em}%
     {\huge}
-\titlespacing*{\chapter}{0in}{-0.4in}{1.5in}
+\titlespacing*{\chapter}{0pt}{-50pt}{40mm}
 
 % Command for unnumbered sections
 \newcommand{\sectionnumberless}[1]{%
