@@ -260,7 +260,15 @@ Take $ \sim $ as defined in Proposition \ref{prop:orbits} for some $ \sigma\in\m
 Let $ \sigma\in\mathcal{S}_n $. Then, there exist some unique cycles $ \tau_1,\tau_2,\ldots,\tau_k $ with disjoint supports such that $ \sigma=\tau_1\circ\tau_2\circ\cdots\circ\tau_k $. In other words, every permutation of a finite set can be decomposed as the product of unique cycles with disjoint supports.
 \end{thm}
 \begin{proof}
-Let $ A_1,A_2,\ldots,A_k $ be the equivalence classes of $ \sim $, and let $ \tau_1,\tau_2,\ldots,\tau_k $ be the cycles defined by these equivalence classes, respectively. We see $ \sigma=\tau_1\circ\tau_2\circ\cdots\circ\tau_k $, and since $ A_1,A_2,\ldots,A_k $ are necessarily disjoint, $ \tau_1,\tau_2,\ldots,\tau_k $ have disjoint supports.
+Let $ A_1,A_2,\ldots,A_k $ be the equivalence classes of $ \sim $, and let $ \tau_1,\tau_2,\ldots,\tau_k $ be the cycles defined such that 
+\begin{equation*}
+    \tau_i(x)=
+    \left\{\begin{array}{ll}
+        \sigma(x), & x\in A_i \\
+        x, & \text{otherwise.}
+    \end{array}\right.
+\end{equation*}
+We see $ \sigma=\tau_1\circ\tau_2\circ\cdots\circ\tau_k $, and since $ A_1,A_2,\ldots,A_k $ are necessarily disjoint, $ \tau_1,\tau_2,\ldots,\tau_k $ have disjoint supports.
 \end{proof}
 
 \begin{defn}
