@@ -42,26 +42,26 @@
 \setlength{\coop@paperwidth}{176mm} % B5 width
 \newlength{\coop@paperheight}
 \setlength{\coop@paperheight}{250mm} % B5 heght
-\newlength{\coop@marginpar}
-\setlength{\coop@marginpar}{20mm}
 
 \newlength{\coop@topmargin}
+\setlength{\coop@topmargin}{\coop@margin}
+
+\newlength{\coop@marginpar}
+\setlength{\coop@marginpar}{\coop@margin-\coop@bindingoffset-5mm}
 
 % Options
-\DeclareOption{b5paper}{
-    \setlength{\coop@topmargin}{(\coop@paperheight-\coop@textheight)/2}
-}
+\DeclareOption{b5paper}{}
 \DeclareOption{a4paper}{
     \setlength{\coop@paperwidth}{210mm}
     \setlength{\coop@paperheight}{297mm}
     \setlength{\coop@topmargin}{(\coop@paperheight-\coop@textheight)/2}
-    \setlength{\coop@marginpar}{40mm}
+    \setlength{\coop@marginpar}{\coop@paperwidth-\coop@bindingoffset-\coop@margin-\coop@textwidth-5mm}
 }
 \DeclareOption{letterpaper}{
     \setlength{\coop@paperwidth}{8.5in}
     \setlength{\coop@paperheight}{11in}
     \setlength{\coop@topmargin}{(\coop@paperheight-\coop@textheight)/2}
-    \setlength{\coop@marginpar}{40mm}
+    \setlength{\coop@marginpar}{\coop@paperwidth-\coop@bindingoffset-\coop@margin-\coop@textwidth-5mm}
 }
 
 % Other options ---------------------------------------------------------------
