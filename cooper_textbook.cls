@@ -16,8 +16,8 @@
 \DeclareOption{nocolor}{\renewcommand{\coop@hlcolor}{lightgray}}
 
 % Binding offset options
-\newcommand{\coop@bindingoffset}{0.25in}
-\DeclareOption{nobinding}{\renewcommand{\coop@bindingoffset}{0in}}
+\newcommand{\coop@bindingoffset}{0in}
+\DeclareOption{binding}{\renewcommand{\coop@bindingoffset}{0.25in}}
 
 % Paper size options
 \newcommand{\coop@papersize}{a4paper}
