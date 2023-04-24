@@ -18,7 +18,7 @@
 \newcommand{\coop@bindingoffset}{0mm}
 \DeclareOption{binding}{\renewcommand{\coop@bindingoffset}{6mm}}
 
-% Base paper dimensions
+% Base paper dimensions (B5)
 \newlength{\coop@basepaperwidth}
 \setlength{\coop@basepaperwidth}{176mm} % B5 width
 \newlength{\coop@basepaperheight}
