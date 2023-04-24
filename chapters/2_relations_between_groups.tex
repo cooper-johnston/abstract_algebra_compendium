@@ -82,7 +82,7 @@ Let $ \phi:G\to G' $ be a homomorphism. Then, $ \phi $ is a monomorphism if and 
 \end{enumerate}
 \end{proof}
 
-\begin{thm}
+\begin{thm}\label{thm:ker_normal_subgroup}
 Let $ \phi:G\to G' $ be a homomorphism. Then, $ \ker(\phi) $ is a normal subgroup of $ G $.
 \end{thm}
 \begin{proof}
@@ -159,9 +159,11 @@ Take $ \mathcal{S}(X) $ as defined in Proposition \ref{prop:permutations} for so
 
 The neutral element of a permutation group is naturally the identity mapping, which we will denote $ \id $.
 
-\begin{defn}
+\begin{defn}\label{defn:symmetric_group}
 Let $ A=\{1,2,\ldots,n\} $ for some $ n\in\mathbb{N} $. Then, $ \mathcal{S}_n=\mathcal{S}(A) $ is called the \defnem{symmetric group} on $ n $ elements.
 \end{defn}
+
+More generally, $ \mathcal{S}_n $ can be used to describe the group of permutations of any finite set. Since any finite set is isomorphic to a subset of $ \mathbb{N} $, we can apply this definition by assigning a label in $ A $ to each element. The results we will show for $ \mathcal{S}_n $ therefore apply with this generalization as well.
 
 Note that for any $ n\in\mathbb{N} $, we have $ \lvert\mathcal{S}_n\rvert=n! $. This may be familiar if you recall the notion of a permutation of a set as a rearrangement of its elements. Consider the following permutation $ \sigma\in\mathcal{S}_5 $:
 \begin{align*}
@@ -289,7 +291,44 @@ We can decompose $ \sigma $ into cycles as $ \sigma=\tau_1\circ\tau_2\circ\cdots
 Since $ \ord(\tau_i)=l_i $ for $ 1\leq i\leq k $, we see that if $ \sigma^m=\id $, then $ m $ is a multiple of each of the $ l_i $s. Hence, by definition, $ \ord(\sigma) $ is the lowest such $ m $.
 \end{proof}
 
-\subsection*{Alternating groups}
+\subsection*{Transpositions and alternating groups}
+
+\begin{cor}[to Theorem \ref{thm:cycle_decomp}]
+Every permutation in $ \mathcal{S}_n $ can be decomposed as the product of transpositions.
+\end{cor}
+
+\begin{prop}
+Let $ \sigma\in\mathcal{S}_n $. Either all transposition decompositions of $ \sigma $ are the product of an even number of transpositions, or all of them are the product of an odd number of transpositions.
+\end{prop}
+\begin{proof}
+Consider the group $ \mathcal{S}_{I,n} $ of permutations of the rows of the $ n\times n $ identity matrix $ I_n $. As remarked following Definition \ref{defn:symmetric_group}, $ \mathcal{S}_{I,n}\simeq\mathcal{S}_n $. We know $ \det(I_n)=1 $, and transposing any two rows of a square matrix changes the sign of its determinant.
+
+Let $ \sigma\in\mathcal{S}_{I,n} $, and let $ A=\sigma(I_n) $. Suppose $ \sigma $ can be decomposed as an even number of transpositions. Then, $ \det(A)=1 $. Now suppose $ \sigma $ can also be decomposed as an odd number of transpositions. Then, $ \det(A)=-1 $, a contradiction. Hence, no $ \sigma\in\mathcal{S}_{I,n} $ can be decomposed into the product of both an even number and an odd number of transpositions.
+\end{proof}
+
+\begin{defn}
+Let $ \sigma\in\mathcal{S}_n $, and let $ k $ be the number of transpositions in some transposition decomposition of $ \sigma $. The number $ \epsilon(\sigma)=(-1)^k $ is called the \defnem{signature} of $ \sigma $. The permutation $ \sigma $ is called \defnem{even} if $ k $ is even or \defnem{odd} if $ k $ is odd.
+\end{defn}
+
+\begin{prop}\label{prop:alternating_group}
+Let $ \mathcal{A}_n=\{\sigma\in\mathcal{S}_n\mid\epsilon(\sigma)=1\} $. Then, $ \mathcal{A}_n $ is a normal subgroup of $ \mathcal{S}_n $.
+\end{prop}
+\begin{proof}
+Let $ \alpha\in\mathcal{A}_n $ and $ \sigma\in\mathcal{S}_n $. For some $ k,m\in\mathbb{N} $, $ \alpha $ can be decomposed as the product of some number $ 2k $ of transpositions and $ \sigma $ can be decomposed as the product of some number $ m $ of transpositions, so there exists a decomposition of $ \sigma\circ\alpha\circ\sigma^{-1} $ into some number $ m+2k+m=2(m+k) $ of transpositions. Hence, $ \sigma\circ\alpha\circ\sigma^{-1}\in\mathcal{A}_n $, so by Theorem \ref{prop:normal_subgroup}, $ \mathcal{A}_n $ is a normal subgroup of $ \mathcal{S}_n $.
+\end{proof}
+
+We can alternatively show that the mapping
+\begin{equation*}
+    \begin{array}{rccc}
+        \epsilon: & (\mathcal{S}_n,\circ) & \to & (\{-1,1\},\cdot) \\
+        & \sigma & \mapsto & \epsilon(\sigma)
+    \end{array}
+\end{equation*}
+is a group homomorphism and that $ \mathcal{A}_n=\ker(\epsilon) $. By Theorem \ref{thm:ker_normal_subgroup}, this implies $ \mathcal{A}_n $ is a normal subgroup of $ \mathcal{S}_n $.
+
+\begin{defn}
+$ \mathcal{A}_n $ as defined in Proposition \ref{prop:alternating_group} is called the \defnem{alternating group} on $ n $ elements.
+\end{defn}
 
 \subsection*{The dihedral group}
 
