@@ -10,13 +10,7 @@ Let $ (G,\odot) $ and $ (G',\oslash) $ be groups. A mapping $ \phi:G\to G' $ is 
 \end{defn}
 
 \begin{defn}
-A group homomorphism is called a(n)
-\begin{enumerate}
-    \item \defnem{monomorphism} when it is injective;
-    \item \defnem{epimorphism} when it is surjective; or
-    \item \defnem{isomorphism} when it is a bijection.
-\end{enumerate}
-A group $ G $ is called \defnem{isomorphic to} a group $ G' $ if there exists an isomorphism $ \phi:G\to G' $. We denote this by $ G\simeq G' $.
+A group homomorphism is called an \defnem{isomorphism} if it is a bijection. A group $ G $ is called \defnem{isomorphic to} a group $ G' $ if there exists an isomorphism $ \phi:G\to G' $. We denote this by $ G\simeq G' $.
 \end{defn}
 
 \begin{prop}
@@ -68,7 +62,7 @@ is called the \defnem{kernel} of $ \phi $.
 \end{defn}
 
 \begin{thm}\label{thm:monomorphism}
-Let $ \phi:G\to G' $ be a homomorphism. Then, $ \phi $ is a monomorphism if and only if $ \ker(\phi)=\{e_G\} $.
+Let $ \phi:G\to G' $ be a homomorphism. Then, $ \phi $ is injective if and only if $ \ker(\phi)=\{e_G\} $.
 \end{thm}
 \begin{proof}~
 \begin{enumerate}
@@ -90,7 +84,7 @@ Let $ \phi:G\to G' $ be a homomorphism. Then, $ \ker(\phi) $ is a normal subgrou
 \end{proof}
 
 \begin{thm}
-Let $ G $ be a group and $ H $ be a subgroup of $ G $. Then, $ H $ is a normal subgroup of $ G $ if and only if there exists an epimorphism $ \phi:G\to G' $ for some group $ G' $ such that $ H=\ker(\phi) $.
+Let $ G $ be a group and $ H $ be a subgroup of $ G $. Then, $ H $ is a normal subgroup of $ G $ if and only if there exists a surjective homomorphism $ \phi:G\to G' $ for some group $ G' $ such that $ H=\ker(\phi) $.
 \end{thm}
 \begin{proof}
 \todo{Do this proof!}
