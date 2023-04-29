@@ -131,9 +131,8 @@ We have four criteria for $ \psi $ to be an isomorphism:
 
     \item Let $ g\ker(\phi)\in\ker(\psi) $. Then, $ \psi(g\ker(\phi))=e_{G'} $, so $ g\in\ker(\phi) $, which implies $ g\ker(\phi)=\ker(\phi) $. Thus, by Theorem \ref{thm:monomorphism}, $ \psi $ is injective.
 
-    \item $ \psi $ is surjective by construction since it maps to $ \im(\phi) $.
+    \item $ \psi $ is surjective by construction since it maps to $ \im(\phi) $.\qedhere
 \end{enumerate}
-Hence, $ \psi $ is an isomorphism.
 \end{proof}
 
 This theorem is also known as the first isomorphism theorem.
@@ -324,8 +323,51 @@ is a group homomorphism and that $ \mathcal{A}_n=\ker(\epsilon) $. By Theorem \r
 $ \mathcal{A}_n $ as defined in Proposition \ref{prop:alternating_group} is called the \defnem{alternating group} on $ n $ elements.
 \end{defn}
 
-\subsection*{The dihedral group}
-
 \section{Finitely generated abelian groups}
+
+Recall the Cartesian product of two sets $ A $ and $ B $:
+\begin{equation*}
+    A\times B=\{(a,b)\mid a\in A,b\in B\}.
+\end{equation*}
+We can extend this idea to groups.
+
+\begin{prop}\label{prop:direct_product}
+Let $ G_1 $ and $ G_2 $ be two groups. The set $ G_1\times G_2 $ together with the law of composition
+\begin{equation*}
+    \begin{array}{rccc}
+        \odot: & (G_1\times G_2)\times(G_1\times G_2) & \to & G_1\times G_2 \\
+        & ((a_1,a_2),(b_1,b_2)) & \mapsto & (a_1b_1,a_2b_2)
+    \end{array}
+\end{equation*}
+is a group.
+\end{prop}
+\begin{proof}
+We have three criteria for $ (G_1\times G_2,\odot) $ to be a group:
+\begin{enumerate}
+    \item Let $ (a_1,a_2),(b_1,b_2),(c_1,c_2)\in G_1\times G_2 $. Then,
+    \begin{align*}
+        ((a_1,a_2)\odot(b_1,b_2))\odot(c_1,c_2) &=(a_1b_1,a_2b_2)\odot(c_1,c_2)=((a_1b_1)c_1,(a_2b_2)c_2) \\
+        &= (a_1(b_1c_1),a_2(b_2c_2))=(a_1,a_2)\odot(b_1c_1,b_2c_2) \\
+        &= (a_1,a_2)\odot((b_1,b_2)\odot(c_1,c_2)),
+    \end{align*}
+    so $ \odot $ is associative.
+    \item Let $ e_1 $ be the neutral element of $ G_1 $ and $ e_2 $ be the neutral element of $ G_2 $. Naturally, the neutral element of $ G_1\times G_2 $ is then $ (e_1,e_2) $:
+    \begin{equation*}
+        (a_1,a_2)\odot(e_1,e_2)=(a_1e_1,a_2e_2)=(a_1,a_2).
+    \end{equation*}
+    \item Naturally, the inverse of $ (a_1,a_2) $ is $ (a_1^{-1},a_2^{-1}) $:
+    \begin{equation*}
+        (a_1,a_2)\odot(a_1^{-1},a_2^{-1})=(a_1a_2^{-1},a_2a_2^{-1})=(e_1,e_2).\qedhere
+    \end{equation*}
+\end{enumerate}
+\end{proof}
+
+\begin{defn}
+The group $ (G_1\times G_2,\odot) $ from Proposition \ref{prop:direct_product} is called the \defnem{direct product} of $ G_1 $ and $ G_2 $. In general, for a family of groups $ \{G_i\}_{i\in I} $ for some non-empty (possibly infinite) index set $ I $, we have the direct product
+\begin{equation*}
+    \prod_{i\in I}G_i=\{(g_i)_{i\in I}\mid g_i\in G_i\text{ for all }i\in I\}
+\end{equation*}
+where $ (g_i)_{i\in I} $ denotes the sequence of $ g_i $s as a touple.
+\end{defn}
 
 \section{Group action on a set}
