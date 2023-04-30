@@ -1,0 +1,97 @@
+\chapter{Rings and Fields}
+
+\section{Rings}
+
+\begin{defn}
+Let $ R $ be a set, and let $ + $ and $ \cdot $ be two laws of composition on $ R $. The triple $ (R,+,\cdot) $ is called a \defnem{ring} if
+\begin{enumerate}
+    \item $ (R,+) $ is an abelian group;
+    \item $ \cdot $ is associative; and
+    \item $ \cdot $ is distributive over $ + $, i.e.\ for all $ x,y,z\in R $, we have
+    \begin{equation*}
+        (x+y)\cdot z=x\cdot z+y\cdot z \quad\text{and}\quad z\cdot(x+y)=z\cdot x+z\cdot y.
+    \end{equation*}
+\end{enumerate}
+\end{defn}
+
+Since the group $ (R,+) $ is abelian, we will use the notation $ 0 $ or $ 0_R $ for its neutral element and $ -a $ for the inverse of $ a\in R $. We will also assume the conventional order of operations when writing expressions with elements of rings, i.e.\ that $ \cdot $ comes before $ + $.
+
+\begin{prop}
+Let $ (R,+,\cdot) $ be a ring. Then,
+\begin{enumerate}
+    \item the neutral element $ 0 $ is unique;
+    \item for all $ a\in R $, we have $ a\cdot 0=0\cdot a=0 $; and
+    \item for all $ a,b\in R $, we have
+    \begin{equation*}
+        a\cdot(-b)=(-a)\cdot b=-(a\cdot b) \quad\text{and}\quad (-a)\cdot(-b)=ab.
+    \end{equation*}
+\end{enumerate}
+\end{prop}
+\begin{proof}
+\todo{Do this proof!}
+\end{proof}
+
+\begin{defn}\label{defn:ring_types}
+A ring $ (R,+,\cdot) $ is called
+\begin{enumerate}
+    \item \defnem{commutative} if $ \cdot $ is commutative;
+    \item a \defnem{ring with identity} if there exists a $ u\in R $ such that for every $ a\in R $, we have $ a\cdot u=u\cdot a=a $; or
+    \item an \defnem{integral domain} if it is commutative and for all $ a,b\in R $, if $ a\cdot b=0 $, then $ a=0 $ or $ b=0 $.
+\end{enumerate}
+\end{defn}
+
+As with groups, we will also typically denote a ring $ (R,+,\cdot) $ simply by its set $ R $. We will also denote the element $ u\in R $ from Definition \ref{defn:ring_types} by $ 1 $ or $ 1_R $.
+
+\begin{prop}
+Let $ R $ be a ring with identity. Then,
+\begin{enumerate}
+    \item the element $ 1_R $ is unique; and
+    \item if there exist some $ b,c\in R $ such that $ a\cdot b=c\cdot a=1_R $ for some $ a\in R $, then $ b=c $.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+\todo{Do this proof!}
+\end{proof}
+
+\begin{defn}
+Let $ R $ be a commutative ring with identity. An element $ a\in R\setminus\{0\} $ is called a \defnem{zero divisor} if there exists a $ b\in R\setminus\{0\} $ such that $ a\cdot b=0 $.
+\end{defn}
+
+\begin{prop}
+Let $ R $ be a commutative ring with identity. Then, the following are equivalent:
+\begin{enumerate}
+    \item $ R $ is an integral domain;
+    \item $ R $ has no zero divisors;
+    \item for every $ a,b,c\in R $, $ a\neq 0 $, if $ a\cdot c=a\cdot b $, then $ b=c $.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+Suppose $ R $ is an integral domain. Then, by definition, for every $ a,b\in R $, if $ a\cdot b=0 $ and $ a\neq 0 $, then $ b=0 $, so $ R $ has no zero divisors.
+
+Now suppose $ R $ has no zero divisors.
+\todo{Finish this proof!}
+\end{proof}
+
+\begin{defn}
+Let $ R $ be a ring with identity. An element $ a\in R $ is called a \defnem{unit} if there exists a $ b\in R $ such that $ a\cdot b=b\cdot a=1 $. The set of units of $ R $ is denoted $ R^* $.
+\end{defn}
+
+\begin{prop}
+Let $ R $ be a ring with identity. Then, $ (R^*,\cdot) $ is a group.
+\end{prop}
+\begin{proof}
+Let $ a,x\in R^* $. Then, there exist some $ b,y\in R $ such that
+\begin{equation*}
+    a\cdot b=b\cdot a=1 \quad\text{and}\quad x\cdot y=y\cdot x=1,
+\end{equation*}
+so
+\begin{align*}
+    (a\cdot x)\cdot(y\cdot b) &= a\cdot(x\cdot y)\cdot b=a\cdot 1\cdot b=a\cdot b=1, \\
+        (y\cdot b)\cdot(a\cdot x) &= y\cdot(b\cdot a)\cdot x=y\cdot 1\cdot x=y\cdot x=1.
+\end{align*}
+Thus, $ \cdot $ is a law of composition on $ R^* $, and we know $ \cdot $ is associative. We see $ b $ is the inverse of $ a $, and since for every $ a\in R^* $, $ 1\cdot a=a\cdot 1=a $, we have the neutral element $ 1 $. Hence, $ (R^*,\cdot) $ is a group.
+\end{proof}
+
+\begin{defn}
+A commutative ring with identity $ R $ is called a \defnem{field} if all its nonzero elements are units, i.e.\ $ R\setminus\{0\}=R^* $.
+\end{defn}

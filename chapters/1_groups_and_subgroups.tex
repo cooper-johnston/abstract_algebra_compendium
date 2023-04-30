@@ -161,13 +161,13 @@ Let $ G $ be a group, and let $ g\in G $. Then,
 \begin{proof}~
 \begin{enumerate}
 
-\item Since $ \langle g\rangle $ is a group, it must contain all compositions of $ g $ with itself, i.e. $ g^m $ for all $ m\in\mathbb{N} $, as well as its inverse $ g^{-1} $ and the inverses of those compositions, so at the minimum, $ \langle g\rangle $ contains $ \{g^m\mid m\in\mathbb{Z}\} $, which is a subgroup of $ G $. Hence, $ \langle g\rangle=\{g^m\mid m\in\mathbb{Z}\} $.
+\item Since $ \langle g\rangle $ is a group, it must contain all compositions of $ g $ with itself, i.e.\ $ g^m $ for all $ m\in\mathbb{N} $, as well as its inverse $ g^{-1} $ and the inverses of those compositions, so at the minimum, $ \langle g\rangle $ contains $ \{g^m\mid m\in\mathbb{Z}\} $, which is a subgroup of $ G $. Hence, $ \langle g\rangle=\{g^m\mid m\in\mathbb{Z}\} $.
 
 \item Suppose $ \langle g\rangle $ is finite. Equivalently, there exist some $ n,k\in\mathbb{Z} $, $ n\neq k $ such that $ g^n=g^k $; without loss of generality, take $ n>k $. We see
 \begin{equation*}
     g^n=g^k \iff g^ng^{-k}=g^kg^{-k} \iff g^{n-k}=e,
 \end{equation*}
-i.e. there exists an $ m=n-k\in\mathbb{N} $ such that $ g^m=e $. Hence, $ \langle g\rangle $ is infinite if and only if such an $ m $ does not exist.
+i.e.\ there exists an $ m=n-k\in\mathbb{N} $ such that $ g^m=e $. Hence, $ \langle g\rangle $ is infinite if and only if such an $ m $ does not exist.
 
 \item From the proof for \ref{prop:cyclic_groups.2}, it follows that if $ \langle g\rangle $ is finite, then the set $ \{m\in\mathbb{N}\mid g^m=e\} $ is nonempty and therefore has a least element, say $ n $. We see $ \{e,g,g^2,\ldots,g^{n-1}\}\subseteq\langle g\rangle $. Let $ g^k\in\langle g\rangle $ for some $ k\in\mathbb{Z} $. We can rewrite $ k $ in terms of its Euclidean division by $ n $ as $ k=nq+r $ for some $ q,r\in\mathbb{Z} $, $ 0\leq r<k$, giving us
 \begin{equation*}
