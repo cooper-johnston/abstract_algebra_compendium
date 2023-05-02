@@ -36,7 +36,7 @@ A ring $ (R,+,\cdot) $ is called
 \begin{enumerate}
     \item \defnem{commutative} if $ \cdot $ is commutative;
     \item a \defnem{ring with identity} if there exists a $ u\in R $ such that for every $ a\in R $, we have $ a\cdot u=u\cdot a=a $; or
-    \item an \defnem{integral domain} if it is commutative and for all $ a,b\in R $, if $ a\cdot b=0 $, then $ a=0 $ or $ b=0 $.
+    \item an \defnem{integral domain} if it is a commutative ring with identity and for all $ a,b\in R $, if $ a\cdot b=0 $, then $ a=0 $ or $ b=0 $.
 \end{enumerate}
 \end{defn}
 
@@ -62,7 +62,7 @@ Let $ R $ be a commutative ring with identity. Then, the following are equivalen
 \begin{enumerate}
     \item $ R $ is an integral domain;
     \item $ R $ has no zero divisors;
-    \item for every $ a,b,c\in R $, $ a\neq 0 $, if $ a\cdot c=a\cdot b $, then $ b=c $.
+    \item for every $ a,b,c\in R $ where $ a\neq 0 $, if $ a\cdot c=a\cdot b $, then $ b=c $.
 \end{enumerate}
 \end{prop}
 \begin{proof}
@@ -80,18 +80,130 @@ Let $ R $ be a ring with identity. An element $ a\in R $ is called a \defnem{uni
 Let $ R $ be a ring with identity. Then, $ (R^*,\cdot) $ is a group.
 \end{prop}
 \begin{proof}
-Let $ a,x\in R^* $. Then, there exist some $ b,y\in R $ such that
-\begin{equation*}
-    a\cdot b=b\cdot a=1 \quad\text{and}\quad x\cdot y=y\cdot x=1,
-\end{equation*}
-so
-\begin{align*}
-    (a\cdot x)\cdot(y\cdot b) &= a\cdot(x\cdot y)\cdot b=a\cdot 1\cdot b=a\cdot b=1, \\
-        (y\cdot b)\cdot(a\cdot x) &= y\cdot(b\cdot a)\cdot x=y\cdot 1\cdot x=y\cdot x=1.
-\end{align*}
-Thus, $ \cdot $ is a law of composition on $ R^* $, and we know $ \cdot $ is associative. We see $ b $ is the inverse of $ a $, and since for every $ a\in R^* $, $ 1\cdot a=a\cdot 1=a $, we have the neutral element $ 1 $. Hence, $ (R^*,\cdot) $ is a group.
+We have three criteria for $ (R^*,\cdot) $ to be a group:
+\begin{enumerate}
+    \item Let $ a,x\in R^* $. Then, there exist some $ b,y\in R $ such that
+    \begin{equation*}
+        a\cdot b=b\cdot a=1 \quad\text{and}\quad x\cdot y=y\cdot x=1,
+    \end{equation*}
+    so
+    \begin{align*}
+        (a\cdot x)\cdot(y\cdot b) &= a\cdot(x\cdot y)\cdot b=a\cdot 1\cdot b=a\cdot b=1, \\
+            (y\cdot b)\cdot(a\cdot x) &= y\cdot(b\cdot a)\cdot x=y\cdot 1\cdot x=y\cdot x=1.
+    \end{align*}
+    Thus, $ \cdot $ is a law of composition on $ R^* $, and we know $ \cdot $ is associative.
+
+    \item For every $ a\in R^* $, we have $ 1\cdot a=a\cdot 1=a $, so $ 1 $ is the neutral element.
+    
+    \item By construction, $ b $ is then the inverse of $ a $.\qedhere
+\end{enumerate}
+\end{proof}
+
+\begin{prop}
+Let $ R $ be a ring of identity. Every unit of $ R $ is not a zero divisor.
+\end{prop}
+\begin{proof}
+\todo{Do this proof!}
 \end{proof}
 
 \begin{defn}
-A commutative ring with identity $ R $ is called a \defnem{field} if all its nonzero elements are units, i.e.\ $ R\setminus\{0\}=R^* $.
+A ring $ R $ is called a \defnem{field} if it is a commutative ring with identity and all its nonzero elements are units, i.e.\ $ R\setminus\{0\}=R^* $.
 \end{defn}
+
+\begin{thm}
+Any finite integral domain is a field.
+\end{thm}
+\begin{proof}
+Let $ R $ be a finite integral domain, and let $ a\in R\setminus\{0\} $. Consider the mapping
+\begin{equation*}
+    \begin{array}{rccc}
+        f: & R & \to & R \\
+        & x & \mapsto & a\cdot x
+    \end{array}.
+\end{equation*}
+Let $ x,x'\in R $ such that $ a\cdot x=a\cdot x' $. Since $ R $ is an integral domain, left cancellation implies $ x=x' $, so $ f $ is injective. Further, since $ f $ is an injective map between finite sets of the same cardinality, $ f $ is also surjective, so there exists a $ b\in R $ such that $ a\cdot b=1\in R $, and since an integral domain is necessarily commutative, we also have $ b\cdot a=1 $. Hence, $ a $ is a unit, so $ R\setminus\{0\}=R^* $.
+\end{proof}
+
+\begin{defn}
+Let $ (R,+,\cdot) $ be a ring, and let $ S\subseteq R $. The triple $ (S,+,\cdot) $ is called a \defnem{subring} of $ R $ if it itself is a ring.
+\end{defn}
+
+\begin{thm}
+Let $ R $ be a ring, and let $ S\subseteq R $, $ S\neq\varnothing $. Then, $ S $ is a subring of $ R $ if and only if for every $ a,b\in S $, we have $ a-b\in S $ and $ a\cdot b\in S $.
+\end{thm}
+\begin{proof}
+\todo{Do this proof!}
+\end{proof}
+
+\begin{defn}
+Let $ R $ be a ring with identity, and let
+\begin{equation*}
+    K=\{n\in\mathbb{N}\mid\underbrace{1+\cdots+1}_{n\text{ times}}=0\}.
+\end{equation*}
+The number
+\begin{equation*}
+    \Char(R)=
+    \left\{\begin{array}{ll}
+        0, & K=\varnothing \\
+        \min(K), & \text{otherwise}
+    \end{array}\right.
+\end{equation*}
+is called the \defnem{characteristic} of $ R $.
+\end{defn}
+
+\begin{prop}
+The characteristic of an integral domain is either $ 0 $ or prime.
+\end{prop}
+\begin{proof}
+\todo{Do this proof!}
+\end{proof}
+
+\subsection*{Homomorphisms of rings}
+
+\begin{defn}
+Let $ (R,+,\cdot) $ and $ (S,\oplus,\odot) $ be two rings. A mapping $ \phi:R\to S $ is called a \defnem{homomorphism of rings} if for all $ x,y\in R $, we have
+\begin{equation*}
+    \phi(x+y)=\phi(x)\oplus\phi(y) \quad\text{and}\quad \phi(x\cdot y)=\phi(x)\odot\phi(y).
+\end{equation*}
+A homomorphism of rings that is a bijection is called an \defnem{isomorphism}.
+\end{defn}
+
+\begin{prop}\label{prop:underlying_morphism}
+Let $ (R,+,\cdot) $ and $ (S,\oplus,\odot) $ be two rings. If there exists a homomorphism of rings $ \phi:R\to S $, then there exists a group homomorphism $ \psi:(R,+)\to(S,\oplus) $.
+\end{prop}
+\begin{proof}
+\todo{Do this proof!}
+\end{proof}
+
+\begin{prop}
+Let $ \phi:R\to S $ be a homomorphism of rings. Then, $ \phi $ is an isomorphism if and only if there exists a unique isomorphism $ \rho:S\to R $ such that $ \rho\circ\phi=\id_R $ and $ \phi\circ\rho=\id_S $.
+\end{prop}
+\begin{proof}
+\todo{Do this proof!}
+\end{proof}
+
+\begin{defn}
+Let $ \phi $ be a homomorphism of rings. The image and kernel of the underlying group homomorphism $ \psi $ from Proposition \ref{prop:underlying_morphism} are called the \defnem{image} and \defnem{kernel} of $ \phi $.
+\end{defn}
+
+\begin{prop}
+Let $ \phi:R\to S $ be a homomorphism of rings. Then,
+\begin{enumerate}
+    \item $ \im(\phi) $ is a subring of $ S $;
+    \item $ \ker(\phi) $ is a subring of R;
+    \item $ \phi $ is injective if and only if $ \ker(\phi)=\{0_R\} $;
+    \item $ \phi $ is surjective if and only if $ \im(\phi)=S $; and
+    \item for every $ x\in R $ and $ y\in\ker(\phi) $, we have $ x\cdot y\in\ker(\phi) $.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+\todo{Do this proof!}
+\end{proof}
+
+\section{Ideals}
+
+\section{Arithmetic in integral domains}
+
+\section{Polynomials}
+
+\sectionnumberless{Solved exercises}
