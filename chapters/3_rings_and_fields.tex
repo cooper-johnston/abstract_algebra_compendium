@@ -14,15 +14,15 @@ Let $ R $ be a set, and let $ + $ and $ \cdot $ be two laws of composition on $ 
 \end{enumerate}
 \end{defn}
 
-For the group $ (R,+) $, we will use the notation $ 0 $ or $ 0_R $ for the neutral element and $ -a $ for the inverse of some $ a\in R $. On the ring, we will assume the conventional order of operations when writing expressions, i.e.\ that $ \cdot $ comes before $ + $.
+Let $ (R,+,\cdot) $ be a ring, and let $ a,b\in R $. For the neutral element of $ R $ under $ + $, we will use the notation $ 0 $ or $ 0_R $; for the inverse of $ a $ under $ + $, we will use the notation $ -a $; and for the composition $ a\cdot b $, we will use the notation $ ab $. We will also assume the conventional order of operations, i.e.\ that $ \cdot $ comes before $ + $.
 
 \begin{prop}
 Let $ (R,+,\cdot) $ be a ring. Then,
 \begin{enumerate}
-    \item for all $ a\in R $, we have $ a\cdot 0=0\cdot a=0 $; and
+    \item for all $ a\in R $, we have $ a(0)=0a=0 $; and
     \item for all $ a,b\in R $, we have
     \begin{equation*}
-        a\cdot(-b)=(-a)\cdot b=-(a\cdot b) \quad\text{and}\quad (-a)\cdot(-b)=a\cdot b.
+        a(-b)=(-a)b=-(ab) \quad\text{and}\quad (-a)(-b)=ab.
     \end{equation*}
 \end{enumerate}
 \end{prop}
@@ -30,22 +30,21 @@ Let $ (R,+,\cdot) $ be a ring. Then,
 \begin{enumerate}
     \item By the distributive property, we have
     \begin{align*}
-        a\cdot 0 &= a\cdot(0+0) & 0\cdot a &= (0+0)\cdot a \\
-        a\cdot 0 &= a\cdot 0+a\cdot 0 & 0\cdot a &= 0\cdot a+0\cdot a \\
-        a\cdot 0-(a\cdot 0) &= a\cdot 0+a\cdot 0-(a\cdot 0) & 0\cdot a-(0\cdot a) &= 0\cdot a+0\cdot a-(0\cdot a) \\
-        0 &= a\cdot 0 & 0 &= 0\cdot a.
+        a(0) &= a(0+0) & 0a &= (0+0)a \\
+        a(0) &= a(0)+a(0) & 0a &= 0a+0a \\
+        a(0)-(a(0)) &= a(0)+a(0)-(a(0)) & 0a-(0a) &= 0a+0a-(0a) \\
+        0 &= a(0) & 0 &= 0a.
     \end{align*}
 
     \item Using the distributive property again, we have
     \begin{equation*}
-        a\cdot(-b)+(a\cdot b)=a\cdot(-b+b)=a\cdot 0=0,
+        a(-b)+(ab)=a(-b+b)=a0=0,
     \end{equation*}
-    so $ a\cdot(-b)=-(a\cdot b) $. Similarly, $ (-a)\cdot b=(-a\cdot b) $. By substitution, we then see
-    \begin{align*}
-        (-a)\cdot(-b)-(a\cdot b) &= (-a)\cdot(-b)+a\cdot(-b)=(-a+a)\cdot(-b) \\
-        &= 0\cdot(-b)=0,
-    \end{align*}
-    so $ (-a)\cdot(-b)=a\cdot b $.\qedhere
+    so $ a(-b)=-(ab) $. Similarly, we can show $ (-a)b=(-ab) $. By substitution, we then see
+    \begin{equation*}
+        (-a)(-b)-(ab)=(-a)(-b)+a(-b)=(-a+a)(-b)=0(-b)=0,
+    \end{equation*}
+    so $ (-a)(-b)=ab $.\qedhere
 \end{enumerate}
 \end{proof}
 
@@ -53,8 +52,8 @@ Let $ (R,+,\cdot) $ be a ring. Then,
 A ring $ (R,+,\cdot) $ is called
 \begin{enumerate}
     \item \defnem{commutative} if $ \cdot $ is commutative;
-    \item a \defnem{ring with identity} if there exists a $ u\in R $ such that for every $ a\in R $, we have $ a\cdot u=u\cdot a=a $; or
-    \item an \defnem{integral domain} if it is a commutative ring with identity and for all $ a,b\in R $, if $ a\cdot b=0 $, then $ a=0 $ or $ b=0 $.
+    \item a \defnem{ring with identity} if there exists some $ u\in R $ such that for every $ a\in R $, we have $ au=ua=a $; or
+    \item an \defnem{integral domain} if it is a commutative ring with identity and for all $ a,b\in R $, if $ ab=0 $, then $ a=0 $ or $ b=0 $.
 \end{enumerate}
 \end{defn}
 
@@ -64,16 +63,16 @@ As with groups, we will also typically denote a ring $ (R,+,\cdot) $ simply by i
 Let $ R $ be a ring with identity. Then,
 \begin{enumerate}
     \item the element $ 1_R $ is unique; and
-    \item if there exist $ b,c\in R $ such that $ a\cdot b=c\cdot a=1_R $ for some $ a\in R $, then $ b=c $.
+    \item if there exist $ b,c\in R $ such that $ ab=ca=1_R $ for some $ a\in R $, then $ b=c $.
 \end{enumerate}
 \end{prop}
 \begin{proof}~
 \begin{enumerate}
-    \item Suppose there exist $ u,v\in R $ such that for every $ a\in R $, we have $ a\cdot u=u\cdot a=a $ and $ a\cdot v=v\cdot a=a $. Then, in particular, $ u=u\cdot v=v $.
+    \item Suppose there exist $ u,v\in R $ such that for every $ a\in R $, we have $ au=ua=a $ and $ av=va=a $. Then, in particular, $ u=uv=v $.
 
     \item By the associative property, we see
     \begin{equation*}
-        b=1_R\cdot b=(c\cdot a)\cdot b=c\cdot (a\cdot b)=c\cdot 1_R=c.\qedhere
+        b=1_Rb=(ca)b=c(ab)=c(1_R)=c.\qedhere
     \end{equation*}
 \end{enumerate}
 \end{proof}
@@ -87,29 +86,21 @@ Let $ R $ be a commutative ring with identity. Then, the following are equivalen
 \begin{enumerate}
     \item $ R $ has no zero divisors;
     \item $ R $ is an integral domain;
-    \item for every $ a,b,c\in R $ where $ a\neq 0 $, if $ a\cdot b=a\cdot c $, then $ b=c $.
+    \item for every $ a,b,c\in R $ where $ a\neq 0 $, if $ ab=ac $, then $ b=c $.
 \end{enumerate}
 \end{prop}
 \begin{proof}
-% We can use symbolic notation to show (1) and (3) are equivalent:
-% \begin{align*}
-%     R\text{ is an integral domain} &\iff (\forall a,x\in R,\, a\cdot x=0\implies a=0\vee x=0) \\
-%     &\iff (\forall a,x\in R,\, a\cdot x=0\wedge a\neq 0\implies x=0) \\
-%     &\iff (\forall a,b,c\in R,\, a\cdot(b-c)=0\wedge a\neq 0\implies b-c=0) \\
-%     &\iff (\forall a,b,c\in R,\, a\cdot b=a\cdot c\wedge a\neq 0\implies b=c). \qedhere
-% \end{align*}
-
 Clearly, $ R $ is an integral domain if and only if $ R $ has no zero divisors. Now, let $ a,b,c\in R $ where $ a\neq 0 $ and suppose
 \begin{align*}
-    a\cdot b &= a\cdot c \\
-    a\cdot b-a\cdot c &= 0 \\
-    a\cdot(b-c) &= 0.
+    ab &= ac \\
+    ab-ac &= 0 \\
+    a(b-c) &= 0.
 \end{align*}
 Since $ a\neq 0 $, we see by definition $ R $ is an integral domain if and only if this implies $ b-c=0 $ or, equivalently, $ b=c $.
 \end{proof}
 
 \begin{defn}
-Let $ R $ be a ring with identity. An element $ a\in R $ is called a \defnem{unit} if there exists some $ b\in R $ such that $ a\cdot b=b\cdot a=1 $. The set of units of $ R $ is denoted $ R^* $.
+Let $ R $ be a ring with identity. An element $ a\in R $ is called a \defnem{unit} if there exists some $ b\in R $ such that $ ab=ba=1 $. The set of units of $ R $ is denoted $ R^* $.
 \end{defn}
 
 \begin{prop}
@@ -120,16 +111,16 @@ We have three criteria for $ (R^*,\cdot) $ to be a group:
 \begin{enumerate}
     \item Let $ a,x\in R^* $. Then, there exist some $ b,y\in R $ such that
     \begin{equation*}
-        a\cdot b=b\cdot a=1 \quad\text{and}\quad x\cdot y=y\cdot x=1,
+        ab=ba=1 \quad\text{and}\quad xy=yx=1,
     \end{equation*}
     so
     \begin{align*}
-        (a\cdot x)\cdot(y\cdot b) &= a\cdot(x\cdot y)\cdot b=a\cdot 1\cdot b=a\cdot b=1, \\
-            (y\cdot b)\cdot(a\cdot x) &= y\cdot(b\cdot a)\cdot x=y\cdot 1\cdot x=y\cdot x=1.
+        (ax)(yb) &= a(xy)b=a(1)b=ab=1, \\
+        (yb)(ax) &= y(ba)x=y(1)x=yx=1.
     \end{align*}
     Thus, $ \cdot $ is a law of composition on $ R^* $, and we know $ \cdot $ is associative.
 
-    \item For every $ a\in R^* $, we have $ 1\cdot a=a\cdot 1=a $, so $ 1 $ is the neutral element.
+    \item For every $ a\in R^* $, we have $ 1 a=a(1)=a $, so $ 1 $ is the neutral element.
     
     \item By construction, $ b $ is then the inverse of $ a $.\qedhere
 \end{enumerate}
@@ -139,7 +130,11 @@ We have three criteria for $ (R^*,\cdot) $ to be a group:
 Let $ R $ be a ring with identity. Every unit of $ R $ is not a zero divisor.
 \end{prop}
 \begin{proof}
-\todo{Do this proof!}
+Let $ a\in R^* $. Then, there exists some $ b\in R $ such that $ ab=ba=1 $. Suppose $ a $ is a zero divisor. Then, there exists some $ c\in R\setminus\{0\} $ such that $ ac=ca=0 $, so
+\begin{equation*}
+    (ab)c=(ba)c=b(ac)=b(0)=0 \quad\text{and}\quad (ab)c=1c=c,
+\end{equation*}
+which implies $ c=0 $, a contradiction. Hence, $ a $ cannot be a zero divisor.
 \end{proof}
 
 \begin{defn}
@@ -154,10 +149,10 @@ Let $ R $ be a finite integral domain, and let $ a\in R\setminus\{0\} $. Conside
 \begin{equation*}
     \begin{array}{rccc}
         f: & R & \to & R \\
-        & x & \mapsto & a\cdot x
+        & x & \mapsto & ax
     \end{array}.
 \end{equation*}
-Let $ x,x'\in R $ such that $ a\cdot x=a\cdot x' $. Since $ R $ is an integral domain, left cancellation implies $ x=x' $, so $ f $ is injective. Further, since $ f $ is an injective map between finite sets of the same cardinality, $ f $ is also surjective, so there exists a $ b\in R $ such that $ a\cdot b=1\in R $, and since an integral domain is necessarily commutative, we also have $ b\cdot a=1 $. Hence, $ a $ is a unit, so $ R\setminus\{0\}=R^* $.
+Let $ x,x'\in R $ such that $ ax=ax' $. Since $ R $ is an integral domain, left cancellation implies $ x=x' $, so $ f $ is injective. Further, since $ f $ is an injective map between finite sets of the same cardinality, $ f $ is also surjective, so there exists a $ b\in R $ such that $ ab=1\in R $, and since an integral domain is necessarily commutative, we also have $ ba=1 $. Hence, $ a $ is a unit, so $ R\setminus\{0\}=R^* $.
 \end{proof}
 
 \begin{defn}
@@ -229,7 +224,7 @@ Let $ \phi:R\to S $ be a homomorphism of rings. Then,
     \item $ \ker(\phi) $ is a subring of R;
     \item $ \phi $ is injective if and only if $ \ker(\phi)=\{0_R\} $;
     \item $ \phi $ is surjective if and only if $ \im(\phi)=S $; and
-    \item for every $ x\in R $ and $ y\in\ker(\phi) $, we have $ x\cdot y\in\ker(\phi) $.
+    \item for every $ x\in R $ and $ y\in\ker(\phi) $, we have $ xy\in\ker(\phi) $.
 \end{enumerate}
 \end{prop}
 \begin{proof}

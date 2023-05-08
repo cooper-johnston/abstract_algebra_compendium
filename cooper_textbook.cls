@@ -188,7 +188,10 @@
     {\chaptertitlename\ \thechapter}%
     {0em}%
     {\huge}
-\titlespacing*{\chapter}{0pt}{-24pt}{40mm}
+
+\titlespacing*{\chapter}{0pt}{-24pt}{50mm}
+\titlespacing*{\section}{0pt}{7ex plus 1ex minus 0.2ex}{3.5ex plus 0.2ex}
+\titlespacing*{\subsection}{0pt}{4ex plus 1ex minus 0.2ex}{2ex plus 0.2ex}
 
 % Command for unnumbered sections
 \newcommand{\sectionnumberless}[1]{%
