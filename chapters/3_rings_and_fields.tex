@@ -14,21 +14,39 @@ Let $ R $ be a set, and let $ + $ and $ \cdot $ be two laws of composition on $ 
 \end{enumerate}
 \end{defn}
 
-Since the group $ (R,+) $ is abelian, we will use the notation $ 0 $ or $ 0_R $ for its neutral element and $ -a $ for the inverse of $ a\in R $. We will also assume the conventional order of operations when writing expressions with elements of rings, i.e.\ that $ \cdot $ comes before $ + $.
+For the group $ (R,+) $, we will use the notation $ 0 $ or $ 0_R $ for the neutral element and $ -a $ for the inverse of some $ a\in R $. On the ring, we will assume the conventional order of operations when writing expressions, i.e.\ that $ \cdot $ comes before $ + $.
 
 \begin{prop}
 Let $ (R,+,\cdot) $ be a ring. Then,
 \begin{enumerate}
-    \item the neutral element $ 0 $ is unique;
     \item for all $ a\in R $, we have $ a\cdot 0=0\cdot a=0 $; and
     \item for all $ a,b\in R $, we have
     \begin{equation*}
-        a\cdot(-b)=(-a)\cdot b=-(a\cdot b) \quad\text{and}\quad (-a)\cdot(-b)=ab.
+        a\cdot(-b)=(-a)\cdot b=-(a\cdot b) \quad\text{and}\quad (-a)\cdot(-b)=a\cdot b.
     \end{equation*}
 \end{enumerate}
 \end{prop}
-\begin{proof}
-\todo{Do this proof!}
+\begin{proof}~
+\begin{enumerate}
+    \item By the distributive property, we have
+    \begin{align*}
+        a\cdot 0 &= a\cdot(0+0) & 0\cdot a &= (0+0)\cdot a \\
+        a\cdot 0 &= a\cdot 0+a\cdot 0 & 0\cdot a &= 0\cdot a+0\cdot a \\
+        a\cdot 0-(a\cdot 0) &= a\cdot 0+a\cdot 0-(a\cdot 0) & 0\cdot a-(0\cdot a) &= 0\cdot a+0\cdot a-(0\cdot a) \\
+        0 &= a\cdot 0 & 0 &= 0\cdot a.
+    \end{align*}
+
+    \item Using the distributive property again, we have
+    \begin{equation*}
+        a\cdot(-b)+(a\cdot b)=a\cdot(-b+b)=a\cdot 0=0,
+    \end{equation*}
+    so $ a\cdot(-b)=-(a\cdot b) $. Similarly, $ (-a)\cdot b=(-a\cdot b) $. By substitution, we then see
+    \begin{align*}
+        (-a)\cdot(-b)-(a\cdot b) &= (-a)\cdot(-b)+a\cdot(-b)=(-a+a)\cdot(-b) \\
+        &= 0\cdot(-b)=0,
+    \end{align*}
+    so $ (-a)\cdot(-b)=a\cdot b $.\qedhere
+\end{enumerate}
 \end{proof}
 
 \begin{defn}\label{defn:ring_types}
@@ -46,34 +64,52 @@ As with groups, we will also typically denote a ring $ (R,+,\cdot) $ simply by i
 Let $ R $ be a ring with identity. Then,
 \begin{enumerate}
     \item the element $ 1_R $ is unique; and
-    \item if there exist some $ b,c\in R $ such that $ a\cdot b=c\cdot a=1_R $ for some $ a\in R $, then $ b=c $.
+    \item if there exist $ b,c\in R $ such that $ a\cdot b=c\cdot a=1_R $ for some $ a\in R $, then $ b=c $.
 \end{enumerate}
 \end{prop}
-\begin{proof}
-\todo{Do this proof!}
+\begin{proof}~
+\begin{enumerate}
+    \item Suppose there exist $ u,v\in R $ such that for every $ a\in R $, we have $ a\cdot u=u\cdot a=a $ and $ a\cdot v=v\cdot a=a $. Then, in particular, $ u=u\cdot v=v $.
+
+    \item By the associative property, we see
+    \begin{equation*}
+        b=1_R\cdot b=(c\cdot a)\cdot b=c\cdot (a\cdot b)=c\cdot 1_R=c.\qedhere
+    \end{equation*}
+\end{enumerate}
 \end{proof}
 
 \begin{defn}
-Let $ R $ be a commutative ring with identity. An element $ a\in R\setminus\{0\} $ is called a \defnem{zero divisor} if there exists a $ b\in R\setminus\{0\} $ such that $ a\cdot b=0 $.
+Let $ R $ be a commutative ring with identity. An element $ a\in R\setminus\{0\} $ is called a \defnem{zero divisor} if there exists some $ b\in R\setminus\{0\} $ such that $ a\cdot b=0 $.
 \end{defn}
 
 \begin{prop}
 Let $ R $ be a commutative ring with identity. Then, the following are equivalent:
 \begin{enumerate}
-    \item $ R $ is an integral domain;
     \item $ R $ has no zero divisors;
-    \item for every $ a,b,c\in R $ where $ a\neq 0 $, if $ a\cdot c=a\cdot b $, then $ b=c $.
+    \item $ R $ is an integral domain;
+    \item for every $ a,b,c\in R $ where $ a\neq 0 $, if $ a\cdot b=a\cdot c $, then $ b=c $.
 \end{enumerate}
 \end{prop}
 \begin{proof}
-Suppose $ R $ is an integral domain. Then, by definition, for every $ a,b\in R $, if $ a\cdot b=0 $ and $ a\neq 0 $, then $ b=0 $, so $ R $ has no zero divisors.
+% We can use symbolic notation to show (1) and (3) are equivalent:
+% \begin{align*}
+%     R\text{ is an integral domain} &\iff (\forall a,x\in R,\, a\cdot x=0\implies a=0\vee x=0) \\
+%     &\iff (\forall a,x\in R,\, a\cdot x=0\wedge a\neq 0\implies x=0) \\
+%     &\iff (\forall a,b,c\in R,\, a\cdot(b-c)=0\wedge a\neq 0\implies b-c=0) \\
+%     &\iff (\forall a,b,c\in R,\, a\cdot b=a\cdot c\wedge a\neq 0\implies b=c). \qedhere
+% \end{align*}
 
-Now suppose $ R $ has no zero divisors.
-\todo{Finish this proof!}
+Clearly, $ R $ is an integral domain if and only if $ R $ has no zero divisors. Now, let $ a,b,c\in R $ where $ a\neq 0 $ and suppose
+\begin{align*}
+    a\cdot b &= a\cdot c \\
+    a\cdot b-a\cdot c &= 0 \\
+    a\cdot(b-c) &= 0.
+\end{align*}
+Since $ a\neq 0 $, we see by definition $ R $ is an integral domain if and only if this implies $ b-c=0 $ or, equivalently, $ b=c $.
 \end{proof}
 
 \begin{defn}
-Let $ R $ be a ring with identity. An element $ a\in R $ is called a \defnem{unit} if there exists a $ b\in R $ such that $ a\cdot b=b\cdot a=1 $. The set of units of $ R $ is denoted $ R^* $.
+Let $ R $ be a ring with identity. An element $ a\in R $ is called a \defnem{unit} if there exists some $ b\in R $ such that $ a\cdot b=b\cdot a=1 $. The set of units of $ R $ is denoted $ R^* $.
 \end{defn}
 
 \begin{prop}
@@ -100,7 +136,7 @@ We have three criteria for $ (R^*,\cdot) $ to be a group:
 \end{proof}
 
 \begin{prop}
-Let $ R $ be a ring of identity. Every unit of $ R $ is not a zero divisor.
+Let $ R $ be a ring with identity. Every unit of $ R $ is not a zero divisor.
 \end{prop}
 \begin{proof}
 \todo{Do this proof!}
