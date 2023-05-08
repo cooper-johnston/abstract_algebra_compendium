@@ -165,7 +165,7 @@
 \RequirePackage{enumitem}
 
 \setlist[enumerate]{
-    listparindent=16pt,
+    listparindent=\parindent,
     parsep=0pt,
     itemsep=10pt,
 	labelindent=0in,
@@ -219,4 +219,4 @@
 
 % Paragraph spacing and indentation -------------------------------------------
 
-\RequirePackage{parskip}
+% \RequirePackage{parskip}
