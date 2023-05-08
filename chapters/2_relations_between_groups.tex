@@ -362,12 +362,38 @@ We have three criteria for $ (G_1\times G_2,\odot) $ to be a group:
 \end{enumerate}
 \end{proof}
 
-\begin{defn}
-The group $ (G_1\times G_2,\odot) $ from Proposition \ref{prop:direct_product} is called the \defnem{direct product} of $ G_1 $ and $ G_2 $. In general, for a family of groups $ \{G_i\}_{i\in I} $ for some non-empty (possibly infinite) index set $ I $, we have the direct product
+\begin{cor}\label{cor:direct_product}
+Let $ \{G_i\}_{i\in I} $ be a family of groups for some non-empty (possibily infinite) index set $ I $. The set
 \begin{equation*}
-    \prod_{i\in I}G_i=\{(g_i)_{i\in I}\mid g_i\in G_i\text{ for all }i\in I\}
+    \mathcal{G}=\{(g_i)_{i\in I}\mid g_i\in G_i\text{ for all }i\in I\},
 \end{equation*}
-where $ (g_i)_{i\in I} $ denotes the sequence of $ g_i $s as a touple.
+where $ (g_i)_{i\in I} $ denotes the sequence of $ g_i $s as a touple, together with the law of composition
+\begin{equation*}
+    \begin{array}{rccc}
+        \odot: & \mathcal{G}\times\mathcal{G} & \to & \mathcal{G} \\
+        & ((g_i)_{i\in I},(h_i)_{i\in I}) & \mapsto & (g_ih_i)_{i\in I}
+    \end{array}
+\end{equation*}
+is a group.
+\end{cor}
+
+\begin{cor}\label{cor:direct_sum}
+Let $ \{G_i\}_{i\in I} $ be a family of abelian groups for some non-empty index set $ I $. The set
+\begin{equation*}
+    \mathcal{H}=\{(g_i)_{i\in I}\mid g_i\in G_i\text{ for all }i\in I, g_i\neq e_i\text{ for only finitely many }i\in I\},
+\end{equation*}
+where $ e_i $ denotes the neutral element of group $ G_i $, together with the law of composition $ \odot $ given in Corollary \ref{cor:direct_product}, is a group. Furthermore, $ \mathcal{H}=\mathcal{G} $ when $ I $ is finite; otherwise, $ \mathcal{H} $ is a proper subgroup of $ \mathcal{G} $.
+\end{cor}
+
+\begin{defn}
+The group $ \mathcal{G} $ from Corollary \ref{cor:direct_product} is called the \defnem{direct product} of the $ g_i $s, denoted
+\begin{equation*}
+    \prod_{i\in I}G_i \quad\text{or}\quad G_1\times G_2\times\cdots\times G_n\text{ for finite }I.
+\end{equation*}
+The group $ \mathcal{H} $ from Corollary \ref{cor:direct_sum} is called the \defnem{direct sum} of the $ g_i $s, denoted
+\begin{equation*}
+    \bigoplus_{i\in I}G_i \quad\text{or}\quad G_1\oplus G_2\oplus\cdots\oplus G_n\text{ for finite }I.
+\end{equation*}
 \end{defn}
 
 \section{Group action on a set}
