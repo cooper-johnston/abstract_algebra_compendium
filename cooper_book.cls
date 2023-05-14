@@ -54,6 +54,12 @@
 % Option for double-wide outer margin
 \DeclareOption{widemargin}{\def\coop@widemargin{1}}
 
+% Option for sentence case in headings
+\DeclareOption{sentencecase}{%
+    \renewcommand{\listfigurename}{List of figures}
+    \renewcommand{\listtablename}{List of tables}
+}
+
 % Suppress remaining book class options
 \DeclareOption{legalpaper}{\OptionNotUsed}
 \DeclareOption{executivepaper}{\OptionNotUsed}
@@ -194,3 +200,12 @@
 % Links -----------------------------------------------------------------------
 
 \RequirePackage[hidelinks]{hyperref}
+
+% Frontmatter -----------------------------------------------------------------
+
+\newcommand{\coop@prefacename}{Preface}
+
+\newenvironment{preface}[1]{%
+    \thispagestyle{plain}
+    \chapter{\ifdefined#1 #1\else\coop@prefacename\fi}
+}{}
