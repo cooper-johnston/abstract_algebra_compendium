@@ -28,7 +28,7 @@ Let $ (R,+,\cdot) $ be a ring. Then,
 \end{prop}
 \begin{proof}~
 \begin{enumerate}
-    \item By the distributive property, we have
+    \item We can rewrite $ 0 $ as $ 0+0 $ and use the distributive property:
     \begin{align*}
         a(0) &= a(0+0) & 0a &= (0+0)a \\
         a(0) &= a(0)+a(0) & 0a &= 0a+0a \\
@@ -36,11 +36,11 @@ Let $ (R,+,\cdot) $ be a ring. Then,
         0 &= a(0) & 0 &= 0a.
     \end{align*}
 
-    \item Using the distributive property again, we have
+    \item Note that for any $ x,y\in R $, we have $ x=y $ if and only if $ x-y=0 $. Thus, since
     \begin{equation*}
         a(-b)+(ab)=a(-b+b)=a(0)=0,
     \end{equation*}
-    so $ a(-b)=-(ab) $. Similarly, we can show $ (-a)b=(-ab) $. By substitution, we then see
+    we have $ a(-b)=-(ab) $. Similarly, we can show $ (-a)b=(-ab) $. By substitution, we then see
     \begin{equation*}
         (-a)(-b)-(ab)=(-a)(-b)+a(-b)=(-a+a)(-b)=0(-b)=0,
     \end{equation*}
@@ -62,8 +62,8 @@ As with groups, we will also typically denote a ring $ (R,+,\cdot) $ simply by i
 \begin{prop}
 Let $ R $ be a ring with identity. Then,
 \begin{enumerate}
-    \item the element $ 1_R $ is unique; and
-    \item if there exist $ b,c\in R $ such that $ ab=ca=1_R $ for some $ a\in R $, then $ b=c $.
+    \item the element $ 1\in R $ is unique; and
+    \item if there exist $ b,c\in R $ such that $ ab=ca=1 $ for some $ a\in R $, then $ b=c $.
 \end{enumerate}
 \end{prop}
 \begin{proof}~
@@ -72,7 +72,7 @@ Let $ R $ be a ring with identity. Then,
 
     \item By the associative property, we see
     \begin{equation*}
-        b=1_Rb=(ca)b=c(ab)=c(1_R)=c.\qedhere
+        b=1b=(ca)b=c(ab)=c(1)=c.\qedhere
     \end{equation*}
 \end{enumerate}
 \end{proof}
@@ -90,7 +90,7 @@ Let $ R $ be a commutative ring with identity. Then, the following are equivalen
 \end{enumerate}
 \end{prop}
 \begin{proof}
-Clearly, $ R $ is an integral domain if and only if $ R $ has no zero divisors. Now, let $ a,b,c\in R $ where $ a\neq 0 $ and suppose
+Clearly, $ R $ is an integral domain if and only if $ R $ has no zero divisors. Now, let $ a\in R\setminus\{0\} $ and suppose for all $ b,c\in R $, we have
 \begin{align*}
     ab &= ac \\
     ab-ac &= 0 \\
@@ -109,37 +109,41 @@ Let $ R $ be a ring with identity. Then, $ (R^*,\cdot) $ is a group.
 \begin{proof}
 We have three criteria for $ (R^*,\cdot) $ to be a group:
 \begin{enumerate}
-    \item Let $ a,x\in R^* $. Then, there exist some $ b,y\in R $ such that
+    \item Let $ a,b\in R^* $. Then, there exist some $ a^{-1},b^{-1}\in R $ such that
     \begin{equation*}
-        ab=ba=1 \quad\text{and}\quad xy=yx=1,
+        aa^{-1}=a^{-1}a=1 \quad\text{and}\quad bb^{-1}=b^{-1}b=1.
     \end{equation*}
-    so
+    Since associativity follows from the ring, we have
     \begin{align*}
-        (ax)(yb) &= a(xy)b=a(1)b=ab=1, \\
-        (yb)(ax) &= y(ba)x=y(1)x=yx=1.
+        (ab)(b^{-1}a^{-1}) &= a(bb^{-1})a^{-1}=a(1)a^{-1}=aa^{-1}=1, \\
+        (b^{-1}a^{-1})(ab) &= b^{-1}(a^{-1}a)b=b^{-1}(1)b=b^{-1}b=1.
     \end{align*}
-    Thus, $ \cdot $ is a law of composition on $ R^* $, and we know $ \cdot $ is associative.
+    Thus, $ \cdot $ is an associative law of composition on $ R^* $.
 
     \item For every $ a\in R^* $, we have $ 1 a=a(1)=a $, so $ 1 $ is the neutral element.
     
-    \item By construction, $ b $ is then the inverse of $ a $.\qedhere
+    \item By construction, $ a^{-1} $ is then the inverse of $ a $.\qedhere
 \end{enumerate}
-\end{proof}
-
-\begin{prop}
-Let $ R $ be a ring with identity. Every unit of $ R $ is not a zero divisor.
-\end{prop}
-\begin{proof}
-Let $ a\in R^* $. Then, there exists some $ b\in R $ such that $ ab=ba=1 $. Suppose $ a $ is a zero divisor. Then, there exists some $ c\in R\setminus\{0\} $ such that $ ac=ca=0 $, so
-\begin{equation*}
-    (ab)c=(ba)c=b(ac)=b(0)=0 \quad\text{and}\quad (ab)c=1c=c,
-\end{equation*}
-which implies $ c=0 $, a contradiction. Hence, $ a $ cannot be a zero divisor.
 \end{proof}
 
 \begin{defn}
 A ring $ R $ is called a \defnem{field} if it is a commutative ring with identity and all its nonzero elements are units, i.e.\ $ R\setminus\{0\}=R^* $.
 \end{defn}
+
+\begin{prop}
+Let $ R $ be a ring with identity. Every unit of $ R $ is not a zero divisor.
+\end{prop}
+\begin{proof}
+Let $ a\in R^* $. Then, there exists some $ a^{-1}\in R $ such that $ aa^{-1}=a^{-1}a=1 $. Suppose $ a $ is a zero divisor. Then, there exists some $ b\in R\setminus\{0\} $ such that $ ab=ba=0 $, so
+\begin{equation*}
+    (aa^{-1})b=(a^{-1}a)b=a^{-1}(ab)=a^{-1}(0)=0 \quad\text{and}\quad (aa^{-1})b=1b=b,
+\end{equation*}
+which implies $ b=0 $, a contradiction. Hence, $ a $ cannot be a zero divisor.
+\end{proof}
+
+\begin{cor}
+Any field is an integral domain.
+\end{cor}
 
 \begin{thm}
 Any finite integral domain is a field.
@@ -152,11 +156,11 @@ Let $ R $ be a finite integral domain, and let $ a\in R\setminus\{0\} $. Conside
         & x & \mapsto & ax
     \end{array}.
 \end{equation*}
-Let $ x,x'\in R $ such that $ ax=ax' $. Since $ R $ is an integral domain, left cancellation implies $ x=x' $, so $ f $ is injective. Further, since $ f $ is an injective map between finite sets of the same cardinality, $ f $ is also surjective, so there exists a $ b\in R $ such that $ ab=1\in R $, and since an integral domain is necessarily commutative, we also have $ ba=1 $. Hence, $ a $ is a unit, so $ R\setminus\{0\}=R^* $.
+Let $ x,x'\in R $ such that $ ax=ax' $. Since $ R $ is an integral domain, left cancellation implies $ x=x' $, so $ f $ is injective. Further, since $ f $ is an injective map between finite sets of the same cardinality, $ f $ is also surjective, so there exists some $ b\in R $ such that $ f(b)=ab=1\in R $, and since an integral domain is necessarily commutative, we also have $ ba=1 $. Hence, $ a $ is a unit, so $ R\setminus\{0\}=R^* $.
 \end{proof}
 
 \begin{defn}
-Let $ (R,+,\cdot) $ be a ring, and let $ S\subseteq R $. The triple $ (S,+,\cdot) $ is called a \defnem{subring} of $ R $ if it itself is a ring.
+Let $ (R,+,\cdot) $ be a ring, and let $ S\subseteq R $. If $ (S,+,\cdot) $ is a ring, it is called a \defnem{subring} of $ R $.
 \end{defn}
 
 \begin{thm}
@@ -169,7 +173,7 @@ Let $ R $ be a ring, and let $ S\subseteq R $, $ S\neq\varnothing $. Then, $ S $
 \begin{defn}
 Let $ R $ be a ring with identity, and let
 \begin{equation*}
-    K=\{n\in\mathbb{N}\mid\underbrace{1+\cdots+1}_{n\text{ times}}=0\}.
+    K=\{n\in\mathbb{N}\mid\underbrace{1_R+\cdots+1_R}_{n\text{ times}}=0\}.
 \end{equation*}
 The number
 \begin{equation*}

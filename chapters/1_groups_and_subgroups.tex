@@ -23,15 +23,8 @@ A law of composition $ \odot $ on $ S $ is called \defnem{associative} if for ev
 Let $ G $ be a set and $ \odot $ be a law of composition on $ G $. A pair $ (G,\odot) $ is called a \defnem{group} if
 \begin{enumerate}
     \item $ \odot $ is associative;
-    \item there exists a \defnem{neutral element} $ e\in G $ such that for every $ g\in G $, we have
-    \begin{equation*}
-        g\odot e=e\odot g=g;
-    \end{equation*}
-    and
-    \item for every $ g\in G $, there exists an \defnem{inverse element} $ g^{-1}\in G $ such that
-    \begin{equation*}
-        g\odot g^{-1}=g^{-1}\odot g=e.
-    \end{equation*}
+    \item there exists a \defnem{neutral element} $ e\in G $ such that for every $ g\in G $, we have $ g\odot e=e\odot g=g $; and
+    \item for every $ g\in G $, there exists an \defnem{inverse element} $ g^{-1}\in G $ such that $ g\odot g^{-1}=g^{-1}\odot g=e $.
 \end{enumerate}
 A group whose law is commutative is called \defnem{commutative} or \defnem{abelian}.
 \end{defn}
@@ -46,7 +39,7 @@ Let $ G $ be a group, and let $ e_1,e_2\in G $ such that for every $ g\in G $, w
 \begin{equation*}
     e_1g=ge_1=g \quad\text{and}\quad e_2g=ge_2=g.
 \end{equation*}
-Then, $ e_1e_2=e_1 $ and $ e_1e_2=e_2 $, so $ e_1=e_2 $.
+Then, in particular, $ e_1e_2=e_1 $ and $ e_1e_2=e_2 $, so $ e_1=e_2 $.
 \end{proof}
 
 \begin{prop}
@@ -59,9 +52,8 @@ Let $ g\in G $. Suppose $ h_1 $ and $ h_2 $ are both inverses of $ g $. Then,
 \end{equation*}
 so
 \begin{equation*}
-    h_1=h_1e=h_1(gh_2)=(h_1g)h_2=eh_2=h_2.
+    h_1=h_1e=h_1(gh_2)=(h_1g)h_2=eh_2=h_2.\qedhere
 \end{equation*}
-Hence, the inverse of $ g $ is unique.
 \end{proof}
 
 \begin{prop}\label{prop:group_elems}
@@ -83,23 +75,21 @@ Let $ (G,\odot) $ be a group, and let $ H\subseteq G $. If $ (H,\odot\rvert_{H\t
 \end{defn}
 
 \begin{thm}\label{thm:subgroup}
-Let $ G $ be a group, and let $ H\subseteq G $, $ H\neq\varnothing $. Then, $ H $ is a subgroup of $ G $ if and only if for every $ h_1,h_2\in H $, we have $ h_1h_2^{-1}\in H $.
+Let $ G $ be a group, and let $ H\subseteq G $, $ H\neq\varnothing $. Then, $ H $ is a subgroup of $ G $ if and only if for every $ x,y\in H $, we have $ xy^{-1}\in H $.
 \end{thm}
 \begin{proof}
 \todo{Do this proof!}
 \end{proof}
 
-We will use the notation $ n\mathbb{Z}=\{n\cdot k\mid k\in\mathbb{Z}\} $ where $ \cdot $ is standard multiplication.
+To denote the set of integer multiples of some $ n\in\mathbb{Z} $, we will use the notation $ n\mathbb{Z}=\{k\in\mathbb{Z}\mid k\equiv 0\pmod n\} $.
 
 \begin{prop}
 Let $ n\in\mathbb{Z} $. Then, $ (n\mathbb{Z},+) $ is a subgroup of $ (\mathbb{Z},+) $.
 \end{prop}
 \begin{proof}
-We see $ 0\in n\mathbb{Z} $ for all $ n\in\mathbb{Z} $, so $ n\mathbb{Z}\neq\varnothing $.
-
-Let $ a,b\in n\mathbb{Z} $. Then, $ a=kn $ and $ b=ln $ for some $ k,l\in\mathbb{Z} $, so we have
+We see $ 0\in n\mathbb{Z} $ for all $ n\in\mathbb{Z} $, so $ n\mathbb{Z}\neq\varnothing $. Let $ a,b\in n\mathbb{Z} $. Then, $ a=kn $ and $ b=ln $ for some $ k,l\in\mathbb{Z} $, so we have
 \begin{equation*}
-    a+(-b)=a-b=kn-ln=(k-l)n=n(k-l)\in n\mathbb{Z}.
+    a+(-b)=a-b=kn-ln=(k-l)n\in n\mathbb{Z}.
 \end{equation*}
 Hence, by Theorem \ref{thm:subgroup}, $ (n\mathbb{Z},+) $ is a subgroup of $ (\mathbb{Z},+) $.
 \end{proof}
@@ -108,9 +98,9 @@ Hence, by Theorem \ref{thm:subgroup}, $ (n\mathbb{Z},+) $ is a subgroup of $ (\m
 Every subgroup of $ (\mathbb{Z},+) $ is of the form $ (n\mathbb{Z},+) $ for some $ n\in\mathbb{Z} $.
 \end{prop}
 \begin{proof}
-Let $ H $ be a subgroup of $ (\mathbb{Z},+) $. If $ H=\{0\} $, then $ H=0\mathbb{Z} $. Otherwise, let $ k\in H $, $ k\neq 0 $. Without loss of generality, take $ k $ to be positive. Now let $ S=H\cap\mathbb{Z}^+ $. Since $ k\in S $, we see $ S\neq\varnothing $, so $ S $ has a minimal element, say $ n $.
+Let $ H $ be a subgroup of $ (\mathbb{Z},+) $. If $ H=\{0\} $, then $ H=0\mathbb{Z} $. Otherwise, let $ k\in H\setminus\{0\} $. Without loss of generality, take $ k $ to be positive. Now let $ S=H\cap\mathbb{Z}^+ $. Since $ k\in S $, we see $ S\neq\varnothing $, so $ S $ has a minimal element, say $ n $.
 
-Since $ n\in H $, we see $ n\mathbb{Z}\subseteq H $. Additionally, rewriting $ k $ in terms of its Euclidean division by $ n $ as $ k=ln+r $ where $ l,r\in\mathbb{N}\cup\{0\} $, $ 0\leq r<n $, we see $ r=0 $ since $ n $ is minimal. Thus, $ k=ln\in n\mathbb{Z} $, so $ H\subseteq n\mathbb{Z} $. Hence, $ H=n\mathbb{Z} $.
+Since $ n\in H $, we see $ n\mathbb{Z}\subseteq H $. Additionally, rewriting $ k $ in terms of its Euclidean division by $ n $ as $ k=nq+r $ where $ q,r\in\mathbb{Z} $, $ 0\leq r<n $, we see $ r=k-nq $. Since $ n $ is minimal, we must have $ r=0 $. Thus, $ k=nq\in n\mathbb{Z} $, so $ H\subseteq n\mathbb{Z} $. Hence, $ H=n\mathbb{Z} $.
 \end{proof}
 
 \begin{prop}\label{prop:generating_set}
@@ -121,9 +111,9 @@ Let $ G $ be a group, and let $ S\subseteq G $. Then, there exists a unique subg
 \end{enumerate}
 \end{prop}
 \begin{proof}[Proof A]
-Let $ X $ be the set of all subgroups of $ G $ that contain $ S $. Since $ G\in X $, we see $ X\neq\varnothing $. Now let $ H=\cup_{J\in X}J $. Then, $ S\subseteq H $. Finally, let $ x,y\in H $. Then, $ x,y\in J $ for all $ J\in X $, and since each $ J $ is a subgroup of $ G $, we have $ xy^{-1}\in J $ for all $ J\in X $. Thus,
+Let $ X $ be the set of all subgroups of $ G $ that contain $ S $. Since $ G\in X $, we see $ X\neq\varnothing $. Now let $ H=\cap_{J\in X}J $. We see $ S\subseteq H $. Finally, let $ x,y\in H $. Then, $ x,y\in J $ for all $ J\in X $, and since each $ J $ is a subgroup of $ G $, we have $ xy^{-1}\in J $ for all $ J\in X $. Thus,
 \begin{equation*}
-    xy^{-1}\in\bigcup_{J\in X}J=H,
+    xy^{-1}\in\bigcap_{J\in X}J=H,
 \end{equation*}
 so, by Theorem \ref{thm:subgroup}, $ H $ is a subgroup of $ G $.
 
@@ -169,7 +159,7 @@ Let $ G $ be a group, and let $ g\in G $. Then,
 \end{equation*}
 i.e.\ there exists an $ m=n-k\in\mathbb{N} $ such that $ g^m=e $. Hence, $ \langle g\rangle $ is infinite if and only if such an $ m $ does not exist.
 
-\item From the proof for \ref{prop:cyclic_groups.2}, it follows that if $ \langle g\rangle $ is finite, then the set $ \{m\in\mathbb{N}\mid g^m=e\} $ is nonempty and therefore has a least element, say $ n $. We see $ \{e,g,g^2,\ldots,g^{n-1}\}\subseteq\langle g\rangle $. Let $ g^k\in\langle g\rangle $ for some $ k\in\mathbb{Z} $. We can rewrite $ k $ in terms of its Euclidean division by $ n $ as $ k=nq+r $ for some $ q,r\in\mathbb{Z} $, $ 0\leq r<k$, giving us
+\item From the proof for \ref{prop:cyclic_groups.2}, it follows that if $ \langle g\rangle $ is finite, then the set $ \{m\in\mathbb{N}\mid g^m=e\} $ is nonempty and therefore has a least element, say $ n $. We see $ \{e,g,g^2,\ldots,g^{n-1}\}\subseteq\langle g\rangle $. Let $ g^k\in\langle g\rangle $ for some $ k\in\mathbb{Z} $. We can rewrite $ k $ in terms of its Euclidean division by $ n $ as $ k=nq+r $ for some $ q,r\in\mathbb{Z} $, $ 0\leq r<n $, giving us
 \begin{equation*}
     g^k=g^{nq+r}=(g^n)^qg^r=e^qg^r=g^r\in\{e,g,g^2,\ldots,g^{n-1}\},
 \end{equation*}
@@ -179,7 +169,7 @@ so $ \langle g\rangle\subseteq\{e,g,g^2,\ldots,g^{n-1}\} $. Hence, $ \langle g\r
 \end{proof}
 
 \begin{defn}
-Let $ x $ be some element in a group. Then, $ \lvert\langle x\rangle\rvert $ is called the \defnem{order} of $ x $, denoted $ \ord(x) $.
+Let $ x $ be some element in a group. Then, the cardinality of $ \langle x\rangle $ is called the \defnem{order} of $ x $, denoted $ \ord(x) $.
 \end{defn}
 
 \section{Cosets}
@@ -208,13 +198,13 @@ By Definition \ref{defn:equiv_relation}, we have three criteria for $ \sim_l $ t
 \begin{enumerate}
     \item We see $ x^{-1}x=e\in H $, so $ x\sim_l x $ (reflexive).
     \item Suppose $ x\sim_l y $. Then, $ x^{-1}y\in H $, so $ (x^{-1}y)^{-1}=y^{-1}x\in H $; therefore, $ y\sim_l x $ (symmetric).
-    \item Let $ z\in G $. Suppose $ x\sim_l y $ and $ y\sim_l z $. Then, $ x^{-1}y,y^{-1}z\in H $, so
+    \item Let $ z\in G $. Suppose $ x\sim_l y $ and $ y\sim_l z $. Then, $ x^{-1}y,y^{-1}z\in H $, so $ (x^{-1}y)(y^{-1}z)\in H $ and
     \begin{equation*}
-        (x^{-1}y)(y^{-1}z)=x^{-1}(yy^{-1})z=x^{-1}z\in H;
+        (x^{-1}y)(y^{-1}z)=x^{-1}(yy^{-1})z=x^{-1}z;
     \end{equation*}
-    therefore, $ x\sim_l z $ (transitive).
+    thus, $ x\sim_l z $ (transitive).
 \end{enumerate}
-Thus, $ \sim_l $ is an equivalence relation. The same for $ \sim_r $ can be proven similarly.
+Hence, $ \sim_l $ is an equivalence relation. The same for $ \sim_r $ can be proven similarly.
 \end{proof}
 
 \begin{cor}[Alternative definition of the left and right cosets]
@@ -228,7 +218,7 @@ Let $ G $ be a group and $ H $ be a subgroup of $ G $. The left cosets of $ H $ 
 We will use the notation $ G/H $ to denote to denote the set of left cosets of $ H $ in $ G $ and $ H\backslash G $ to denote the set of right cosets.
 
 \begin{prop}
-Let $ G $ be a group and $ H $ be a subgroup of $ G $. Then, there exists a bijection between $ G/H $ and $ H\backslash G $. It follows that the number of left and right cosets are the same when finite.
+Let $ G $ be a group and $ H $ be a subgroup of $ G $. Then, there exists a bijection between $ G/H $ and $ H\backslash G $. It follows that the number of left cosets is equal to the number of right cosets when finite.
 \end{prop}
 \begin{proof}
 \todo{Do this proof!}
@@ -242,14 +232,14 @@ Let $ G $ be a group and $ H $ be a subgroup of $ G $. The cardinality of $ G/H 
 Let $ G $ be a group and $ H $ be a subgroup of $ G $. Then, there exists a bijection between any two cosets of $ H $ in $ G $. It follows that if $ H $ is finite, then all the cosets are finite and have the same cardinality.
 \end{prop}
 \begin{proof}
-Let $ g\in G $, and let
+Let $ g\in G $. Consider the mapping
 \begin{equation*}
     \begin{array}{rccc}
         f_g: & H & \to & gH \\
         & h & \mapsto & gh
     \end{array}.
 \end{equation*}
-By the definition of $ gH $, the mapping $ f_g $ is well-defined and surjective. Let $ h,h'\in H $ such that $ gh=gh' $. Then, by Proposition \ref{prop:group_elems}, we see $ h=h' $, so $ f_g $ is injective. Hence, $ f_g $ is a bijection, so $ \lvert H\rvert=\lvert gH\rvert $ when finite.
+By the definition of $ gH $, we see $ f_g $ is well-defined and surjective. Let $ h,h'\in H $ such that $ gh=gh' $. Then, by Proposition \ref{prop:group_elems}, we see $ h=h' $, so $ f_g $ is injective. Hence, $ f_g $ is a bijection.
 \end{proof}
 
 \begin{thm}[Lagrange's theorem]
@@ -270,11 +260,11 @@ Let $ G $ be a group and $ H,K $ be subgroups of $ G $ where $ K\subseteq H $. T
 \end{cor}
 
 \begin{cor}
-Let $ G $ be a finite group, and let $ g\in G $. Then, $ \ord(g) $ divides $ \lvert G\rvert $. It follows that $ g^{\lvert G\rvert}=e $.
+Let $ G $ be a group, and let $ g\in G $. If $ G $ is finite, then $ \ord(g) $ divides $ \lvert G\rvert $. It follows that $ g^{\lvert G\rvert}=e $.
 \end{cor}
 
 \begin{cor}
-Let $ G $ be a group of prime order. Then, $ G $ is cyclic; in other words, $ G=\langle g\rangle $ for all $ g\in G\setminus\{e\} $.
+Let $ G $ be a finite group. If $ \lvert G\rvert $ is prime, then, $ G $ is cyclic; in other words, $ G=\langle g\rangle $ for all $ g\in G\setminus\{e\} $.
 \end{cor}
 
 \section{Normal subgroups}
@@ -283,44 +273,61 @@ Let $ G $ be a group of prime order. Then, $ G $ is cyclic; in other words, $ G=
 Let $ G $ be a finite group and $ H $ be a subgroup of $ G $. If for every $ g\in G $, we have $ gH=Hg $, i.e.\ the left and right cosets are the same, then $ H $ is called a \defnem{normal subgroup} of $ G $.
 \end{defn}
 
-\begin{prop}\label{prop:normal_subgroup}
+\begin{thm}\label{thm:normal_subgroup}
 Let $ G $ be a finite group and $ H $ be a subgroup of $ G $. Then, $ H $ is a normal subgroup of $ G $ if and only if for every $ g\in G $ and $ h\in H $, we have $ ghg^{-1}\in H $.
-\end{prop}
+\end{thm}
 \begin{proof}~
 \begin{enumerate}
 
 \item[($ \Rightarrow $)] Suppose $ H $ is a normal subgroup of $ G $. Then, for all $ g\in G $, we have $ gH=Hg $, so for all $ h\in H $, we have $ gh\in Hg $. This means there exists some $ k\in H $ such that $ gh=kg $, so
 \begin{equation*}
-    ghg^{-1}=kgg^{-1}=k\in H.
+    ghg^{-1}=kgg^{-1}=k.
 \end{equation*}
+Hence, $ ghg^{-1}\in H $.
 
-\item[($ \Leftarrow $)] Let $ x\in gH $, and suppose for every $ g\in G $ and $ h\in H $, we have $ ghg^{-1}\in H $. Then, there exists some $ h\in H $ such that
+\item[($ \Leftarrow $)] Suppose for every $ g\in G $ and $ h\in H $, we have $ ghg^{-1}\in H $. Let $ x\in jH $ for some $ j\in G $. Then, there exists some $ k\in H $ such that
 \begin{equation*}
-    x=gh=gh(g^{-1}g)=(ghg^{-1})g\in Hg,
+    x=jk=jk(j^{-1}j)=(jkj^{-1})j\in Hj,
 \end{equation*}
-so $ Hg\subseteq gH $. Similarly, it can be shown that $ gH\subseteq Hg $; hence, $ gH=Hg $. \qedhere
+so $ jH\subseteq Hj $. Similarly, it can be shown that $ Hj\subseteq jH $; hence, $ jH=Hj $. \qedhere
 
 \end{enumerate}
 \end{proof}
 
 \begin{thm}
-Let $ (G,\odot) $ be a group and $ H $ be a normal subgroup of $ G $. Then, $ G/H $ can be given a group structure with the composition law
+Let $ G $ be a group and $ H $ be a normal subgroup of $ G $. Then, $ G/H $ can be given a group structure with the composition law
 \begin{equation*}
     \begin{array}{rccc}
         \oslash: & G/H\times G/H & \to & G/H \\
-        & (xH,yH) & \mapsto & (x\odot y)H
+        & (xH,yH) & \mapsto & (xy)H
     \end{array}.
 \end{equation*}
 \end{thm}
 \begin{proof}
-Since $ H $  is a normal subgroup, $ \oslash $ is well-defined. Associativity and inverses follow from $ \odot $. Since $ H=e_GH $, we have, for all $ gH\in G/H $,
-\begin{equation*}
-    H\oslash gH=e_GH\oslash gH=(e_G\odot g)H=gH,
-\end{equation*}
-and, similarly, $ gH\oslash H=gH $, so we have the neutral element $ H $. Hence, $ (G/H,\oslash) $ is a group.
+We have three criteria for $ (G/H,\oslash) $ to be a group:
+\begin{enumerate}
+    \item Let $ x_1,x_2,y_1,y_2\in G $ such that $ x_1H=x_2H $ and $ y_1H=y_2H $. Since $ H $ is a normal subgroup, for all $ h\in H $, there exists some $ h'\in H $ such that $ y_1h=h'y_2 $, so $ x_1y_1h=x_1h'y_2 $. Similarly, there exists some $ h''\in H $ such that $ x_1h'=h''x_2 $, so
+    \begin{equation*}
+        x_1y_1h=x_1h'y_2=h''x_2y_2.
+    \end{equation*}
+    This means that $ (x_1y_1)H=H(x_2y_2) $, so since $ H $ is a normal subgroup, $ (x_1y_1)H=(x_2y_2)H $. Thus, $ \oslash $ is well-defined. Associativity follows from the law of composition on $ G $.
+
+    \item Since $ H=e_GH $, we have, for all $ gH\in G/H $,
+    \begin{equation*}
+        H\oslash gH=e_GH\oslash gH=(e_Gg)H=gH,
+    \end{equation*}
+    and, similarly, $ gH\oslash H=gH $, so we have the neutral element $ H $.
+
+    \item Let $ gH\in G/H $. Naturally, the inverse of $ gH $ is $ g^{-1}H $:
+    \begin{equation*}
+        (gg^{-1})H=e_GH=H.\qedhere
+    \end{equation*}
+\end{enumerate}
 \end{proof}
 
 \sectionnumberless{Solved exercises}
+
+\subsection*{Groups}
 
 Determine whether the following are groups, and show why or why not.
 \begin{exer}
@@ -337,7 +344,7 @@ Consider $ (\mathbb{R},\odot) $ where $ \odot $ is defined such that for $ x,y\i
 Notice
 \begin{align*}
     2\odot(3\odot 4) &= 2\odot\left((3)(4)+(3^2-1)(4^2-1)\right)=2\odot 132 \\
-    &= (2)(132)+(2^2-1)(132^2-1)=52\,533
+    &= (2)(132)+(2^2-1)(132^2-1)=52\,533,
 \end{align*}
 while
 \begin{align*}
@@ -367,14 +374,14 @@ Suppose there exists a pair $ (x,y) $ such that $ x\odot y=-1 $. Then,
     x+y+xy &= -1 \\
     y(1+x) &= -1-x \\
     y &= -\frac{1+x}{1+x} \\
-    y &= -1
+    y &= -1,
 \end{align*}
 so such a pair cannot be in $ (\mathbb{R}\setminus\{-1\})\times(\mathbb{R}\setminus\{-1\}) $; thus, $ \odot $ is a law of composition on $ \mathbb{R}\setminus\{-1\} $. We also see
 \begin{align*}
     (x\odot y)\odot z &= (x+y+xy)\odot z=(x+y+xy)+z+(x+y+xy)z \\
     &= x+y+xy+z+xz+yz+xyz \\
     &= x+(y+z+yz)+x(y+z+yz)=x\odot(y+z+yz) \\
-    &= x\odot(y\odot z)
+    &= x\odot(y\odot z),
 \end{align*}
 so $ \odot $ is associative. Finally, notice that for all $ x\in\mathbb{R}\setminus\{-1\} $, we have
 \begin{equation*}
@@ -394,7 +401,7 @@ Consider $ (\mathcal{C},\cdot) $ where $ \mathcal{C}=\{z\in\mathbb{C}\mid\lvert 
 \begin{sltn}
 Since $ \mathcal{C} $ is the unit circle, we can uniquely represent each $ z\in\mathcal{C} $ in polar form as $ z=e^{i\theta} $ for some $ \theta\in(-\pi,\pi] $, and we know $ e^{i\theta}\in\mathcal{C} $ for all $ \theta\in\mathbb{R} $. Let $ e^{i\theta_1},e^{i\theta_2}\in\mathcal{C} $. Then,
 \begin{equation*}
-    e^{i\theta_1}\cdot e^{i\theta_2}=e^{i\theta_1+i\theta_2}=e^{i(\theta_1+\theta_2)}\in\mathcal{C}
+    e^{i\theta_1}\cdot e^{i\theta_2}=e^{i\theta_1+i\theta_2}=e^{i(\theta_1+\theta_2)}\in\mathcal{C},
 \end{equation*}
 so standard multiplication is a law of composition on $ \mathcal{C} $, and we know standard multiplication is associative. The neutral element under standard multiplication is $ 1=e^{i(0)}\in\mathcal{C} $. Finally, notice that for all $ e^{i\theta}\in\mathcal{C} $,
 \begin{equation*}
@@ -409,11 +416,11 @@ Consider $ (\mathrm{SL}_n(\mathbb{R}),\cdot) $ where $ \mathrm{SL}_n(\mathbb{R})
 \begin{sltn}
 Let $ A,B\in\mathrm{SL}_n(\mathbb{R}) $. Then,
 \begin{equation*}
-    \det(AB)=\det(A)\,\det(B)=(1)(1)=1
+    \det(AB)=\det(A)\,\det(B)=(1)(1)=1,
 \end{equation*}
 so $ AB\in\mathrm{SL}_n(\mathbb{R}) $. Thus, standard matrix multiplication is a law of composition on $ \mathrm{SL}_n(\mathbb{R}) $, and we know standard matrix multiplication is associative. The neutral element under standard matrix multiplication is $ I_n $ and $ \det(I_n)=1 $, so $ I_n\in\mathrm{SL}_n(\mathbb{R}) $. Finally, taking $ A^{-1} $ as the standard matrix inverse, we see
 \begin{equation*}
-    \det(A^{-1})=\frac{1}{\det(A)}=\frac{1}{1}=1
+    \det(A^{-1})=\frac{1}{\det(A)}=\frac{1}{1}=1,
 \end{equation*}
 so $ A^{-1}\in\mathrm{SL}_n(\mathbb{R}) $. Hence, $ (\mathrm{SL}_n(\mathbb{R}),\cdot) $ is a group.
 \end{sltn}
@@ -461,7 +468,7 @@ For $ I_2 $, $ I $, $ J $, and $ K $, we have the composition table
 \end{equation*}
 and we know for any matrices $ A $ and $ B $,
 \begin{equation*}
-    (-A)B=A(-B)=-AB \quad\text{and}\quad (-A)(-B)=AB
+    (-A)B=A(-B)=-AB \quad\text{and}\quad (-A)(-B)=AB,
 \end{equation*}
 so standard matrix multiplication is a law of composition on $ Q $. We also know standard matrix multiplication is associative. The neutral element under standard matrix multiplication of $ 2\times 2 $ matrices is $ I_2\in Q $. Finally, from the composition table, we have the inverses
 \begin{align*}
@@ -494,7 +501,7 @@ Let $ a,b,c,x,y,z\in\mathbb{R} $. Then,
         0 & 1 & c+z \\
         0 & 0 & 1
     \end{bmatrix}
-    \in H
+    \in H,
 \end{equation*}
 so standard matrix multiplication is a law of composition on $ H $, and we know standard matrix multiplication is associative. The neutral element under standard matrix multiplication of $ 3\times 3 $ matrices is $ I_3\in H $. Finally, computing the standard matrix inverse, we see
 \begin{equation*}
@@ -514,13 +521,15 @@ so standard matrix multiplication is a law of composition on $ H $, and we know 
 Hence, $ (H,\cdot) $ is a group.
 \end{sltn}
 
+\subsection*{Subgroups}
+
 For each of the following, determine whether $ H $ is a subgroup of $ G $, and show why or why not.
 
 \begin{exer}
 Let $ G=(\mathbb{R},+) $ and $ H=\{-1,0,1\} $.
 \end{exer}
 \begin{sltn}
-Consider $ 1+1=2\notin H $. Hence, $ H $ is not a subgroup of $ G $.
+Notice $ 1+1=2\notin H $. Hence, $ H $ is not a subgroup of $ G $.
 \end{sltn}
 
 \begin{exer}
@@ -546,9 +555,9 @@ Let $ G=(\mathbb{R}\setminus\{0\},\cdot) $ and $ H=\{-1,1\} $.
 \end{exer}
 \begin{sltn}
 We see
-\begin{align*}
-    (-1)^{-1}&=\frac{1}{-1}=-1, & 1^{-1}&=\frac{1}{1}=1
-\end{align*}
+\begin{equation*}
+    (-1)^{-1}=\frac{1}{-1}=-1 \quad\text{and}\quad 1^{-1}=\frac{1}{1}=1,
+\end{equation*}
 so
 \begin{align*}
     -1\cdot(-1)^{-1}&=-1\cdot-1=1\in H, & -1\cdot 1^{-1}&=-1\cdot 1=-1\in H, \\
@@ -563,7 +572,7 @@ Let $ G=(\mathbb{C}\setminus\{0\},\cdot) $ and $ H=\left\{e^{i(2\pi k)/n}\mid k\
 \begin{sltn}
 Let $ h_1,h_2\in H $. Then, $ h_1=e^{i(2\pi k)/n} $ and $ h_2=e^{i(2\pi l)/n} $ for some $ k,l\in\{0,1,\ldots,n-1\} $, so
 \begin{equation*}
-    h_2^{-1}=\left(e^{i(2\pi l)/n}\right)^{-1}=e^{-i(2\pi l)/n}
+    h_2^{-1}=\left(e^{i(2\pi l)/n}\right)^{-1}=e^{-i(2\pi l)/n},
 \end{equation*}
 and we see
 \begin{equation*}
@@ -582,7 +591,7 @@ Let $ G=(\mathrm{GL}_n(\mathbb{R}),\cdot) $ where $ \mathrm{GL}_n(\mathbb{R}) $ 
 \begin{sltn}
 Let $ A,B\in H=\mathrm{SL}_n(\mathbb{R}) $. Then,
 \begin{equation*}
-    \det(A)=\det(B)=1\neq0
+    \det(A)=\det(B)=1\neq 0,
 \end{equation*}
 so $ A^{-1} $ and $ B^{-1} $ exist and
 \begin{equation*}
@@ -595,13 +604,15 @@ Therefore,
 so $ AB^{-1}\in H $. Hence, $ H $ is a subgroup of $ G $.
 \end{sltn}
 
+\subsection*{Cyclic groups}
+
 \begin{exer}
 Let $ G $ be a group, and let $ x\in G $ where $ x $ is of order $ k $. Prove that if $ m $ is an integer such that $ x^m=e_G $, then $ k\mid m $.
 \end{exer}
 \begin{sltn}
-Since $ x $ is of order $ k $, we have by definition that $ k $ is the smallest positive integer such that $ x^k=e_G $. Suppose $ x^m=e_G $ for some $ m\in\mathbb{Z} $. We can rewrite $ m $ in terms of its Euclidean division by $ k $ as $ m=kn+r $ for some $ n,r\in\mathbb{Z} $ where $ 0\leq r<k $, giving us
+Since $ x $ is of order $ k $, we have by definition that $ k $ is the smallest positive integer such that $ x^k=e_G $. Suppose $ x^m=e_G $ for some $ m\in\mathbb{Z} $. We can rewrite $ m $ in terms of its Euclidean division by $ k $ as $ m=kq+r $ for some $ q,r\in\mathbb{Z} $ where $ 0\leq r<k $, giving us
 \begin{equation*}
-    x^m=x^{kn+r}=x^{kn}x^r=(x^k)^n x^r=e_G^n x^r=x^r.
+    x^m=x^{kq+r}=x^{kq}x^r=(x^k)^q x^r=e_G^q x^r=x^r.
 \end{equation*}
-so $ x^r=e_G $. Since $ r<k $, then $ r=0 $, so $ m=nk $. Hence, $ k\mid m $.
+so $ x^r=e_G $. Since $ r<k $ and $ k $ is minimal, we must have $ r=0 $, so $ m=kq $. Hence, $ k\mid m $.
 \end{sltn}
