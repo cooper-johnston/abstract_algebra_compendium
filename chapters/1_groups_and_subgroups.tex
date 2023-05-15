@@ -26,7 +26,7 @@ Let $ G $ be a set and $ \odot $ be a law of composition on $ G $. A pair $ (G,\
     \item there exists a \defnem{neutral element} $ e\in G $ such that for every $ g\in G $, we have $ g\odot e=e\odot g=g $; and
     \item for every $ g\in G $, there exists an \defnem{inverse element} $ g^{-1}\in G $ such that $ g\odot g^{-1}=g^{-1}\odot g=e $.
 \end{enumerate}
-A group whose law is commutative is called \defnem{commutative} or \defnem{abelian}.
+A group whose law is commutative is called \defnem{abelian}.
 \end{defn}
 
 We will typically refer to a group by its set and denote compositions of its elements using multiplicative notation $ ab $ if commutativity is not assumed, or additive notation $ a+b $ if commutativity is assumed; in the latter case, the inverse of $ a $ is denoted $ -a $.
@@ -78,7 +78,13 @@ Let $ (G,\odot) $ be a group, and let $ H\subseteq G $. If $ (H,\odot\rvert_{H\t
 Let $ G $ be a group, and let $ H\subseteq G $, $ H\neq\varnothing $. Then, $ H $ is a subgroup of $ G $ if and only if for every $ x,y\in H $, we have $ xy^{-1}\in H $.
 \end{thm}
 \begin{proof}
-\todo{Do this proof!}
+First note that by uniqueness of the neutral element, the neutral element of a subgroup must be the same as that of its parent group, and further, the inverse of an element of a subgroup must be the same as the inverse of that element in the parent group.
+
+\begin{enumerate}
+    \item[($ \Rightarrow $)] Suppose $ H $ is a subgroup of $ G $. Let $ x,y\in H $. Since $ H $ is a group, $ y^{-1}\in H $, so $ xy^{-1}\in H $.
+
+    \item[($ \Leftarrow $)] Suppose that for every $ x,y\in H $, we have $ xy^{-1}\in H $. In particular, since $ H\neq\varnothing $, we can take some $ h\in H $ to see $ hh^{-1}=e_G\in H $, so $ h^{-1}=e_Gh^{-1}\in H $. This means $ (y^{-1})^{-1}=y\in H $. Thus, $ xy\in H $, so $ H $ is closed under the law of composition on $ G $. Further, since this law is associative on $ G $, it is also associative on $ H $. Hence, we have demonstrated the criteria for $ H $ to be a group.\qedhere
+\end{enumerate}
 \end{proof}
 
 To denote the set of integer multiples of some $ n\in\mathbb{Z} $, we will use the notation $ n\mathbb{Z}=\{k\in\mathbb{Z}\mid k\equiv 0\pmod n\} $.
@@ -207,7 +213,7 @@ By Definition \ref{defn:equiv_relation}, we have three criteria for $ \sim_l $ t
 Hence, $ \sim_l $ is an equivalence relation. The same for $ \sim_r $ can be proven similarly.
 \end{proof}
 
-\begin{cor}[Alternative definition of the left and right cosets]
+\begin{cor}[Alternative definition of the left and right cosets]\label{cor:cosets_defn}
 Let $ G $ be a group and $ H $ be a subgroup of $ G $, and take $ \sim_l $ and $ \sim_r $ as defined in Theorem \ref{thm:coset_relations}. Then, the left cosets of $ H $ in $ G $ are the equivalence classes of $ \sim_l $, and the right cosets are the equivalence classes of $ \sim_r $.
 \end{cor}
 
@@ -221,7 +227,19 @@ We will use the notation $ G/H $ to denote to denote the set of left cosets of $
 Let $ G $ be a group and $ H $ be a subgroup of $ G $. Then, there exists a bijection between $ G/H $ and $ H\backslash G $. It follows that the number of left cosets is equal to the number of right cosets when finite.
 \end{prop}
 \begin{proof}
-\todo{Do this proof!}
+Consider the mapping
+\begin{equation*}
+    \begin{array}{rccc}
+        f: & G/H & \to & H\backslash G \\
+        & xH & \mapsto & Hx^{-1}
+    \end{array}.
+\end{equation*}
+Let $ x,y\in G $. By Corollary \ref{cor:cosets_defn}, we see
+\begin{align*}
+    xH=yH &\iff y^{-1}x\in H \iff (y^{-1}x)^{-1}\in H \iff x^{-1}y\in H \\
+    &\iff Hx^{-1}=Hy^{-1},
+\end{align*}
+so $ f $ is well-defined and injective. We also see that for every $ Hy\in H\backslash G $, we have $ f(y^{-1}H)=Hy $, so $ f $ is surjective. Hence, $ f $ is a bijection.
 \end{proof}
 
 \begin{defn}
@@ -294,7 +312,7 @@ so $ jH\subseteq Hj $. Similarly, it can be shown that $ Hj\subseteq jH $; hence
 \end{enumerate}
 \end{proof}
 
-\begin{thm}
+\begin{thm}\label{thm:cosets_group_structure}
 Let $ G $ be a group and $ H $ be a normal subgroup of $ G $. Then, $ G/H $ can be given a group structure with the composition law
 \begin{equation*}
     \begin{array}{rccc}

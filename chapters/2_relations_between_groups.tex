@@ -22,7 +22,19 @@ Let $ \phi:(G,\odot)\to(G',\oslash) $ be a homomorphism. Then,
 \end{prop}
 \begin{proof}~
 \begin{enumerate}
-    \item \todo{Do this proof!}
+    \item By definition, for all $ x\in G' $, we have $ x\oslash(x)^{-1}=(x)^{-1}\oslash x=e_{G'} $. In particular,
+    \begin{equation*}
+        e_{G'}=\phi(e_G)\oslash(\phi(e_G))^{-1}=(\phi(e_G))^{-1}\oslash\phi(e_G).
+    \end{equation*}
+    Since $ \phi $ is a homomorphism, we also have
+    \begin{align*}
+        \phi(e_G) &= \phi(e_G\odot e_G) \\
+        \phi(e_G) &= \phi(e_G)\oslash\phi(e_G) \\
+        \phi(e_G)\oslash(\phi(e_G))^{-1} &= \phi(e_G)\oslash\phi(e_G)\oslash(\phi(e_G))^{-1} \\
+        e_{G'} &= \phi(e_G)\oslash e_{G'} \\
+        e_{G'} &= \phi(e_G).
+    \end{align*}
+
     \item By definition, $ (\phi(g))^{-1} $ is the inverse of $ \phi(g) $ in $ G' $. We see
     \begin{equation*}
         \phi(g^{-1})\oslash\phi(g)=\phi(g^{-1}\odot g)=\phi(e_G)=e_G',
@@ -42,7 +54,7 @@ Let $ \phi:G\to G' $ be a homomorphism. The set
 is called the \defnem{image} of $ \phi $.
 \end{defn}
 
-\begin{prop}
+\begin{prop}\label{prop:image_subgroup}
 Let $ \phi:G\to G' $ be a homomorphism. Then, $ \im(\phi) $ is a subgroup of $ G' $.
 \end{prop}
 \begin{proof}
@@ -80,14 +92,27 @@ Let $ \phi:G\to G' $ be a homomorphism. Then, $ \phi $ is injective if and only 
 Let $ \phi:G\to G' $ be a homomorphism. Then, $ \ker(\phi) $ is a normal subgroup of $ G $.
 \end{thm}
 \begin{proof}
-\todo{Do this proof!}
+Let $ g\in G $ and $ x\in\ker(\phi) $. Then, $ \phi(x)=e_{G'} $, so
+\begin{equation*}
+    \phi(gxg^{-1})=\phi(g)\phi(x)\phi(g^{-1})=\phi(g)e_{G'}(\phi(g))^{-1}=\phi(g)(\phi(g))^{-1}=e_{G'}.\qedhere
+\end{equation*}
 \end{proof}
 
 \begin{thm}
 Let $ G $ be a group and $ H $ be a subgroup of $ G $. Then, $ H $ is a normal subgroup of $ G $ if and only if there exists a surjective homomorphism $ \phi:G\to G' $ for some group $ G' $ such that $ H=\ker(\phi) $.
 \end{thm}
-\begin{proof}
-\todo{Do this proof!}
+\begin{proof}Suppose $ H $ is a normal subgroup of $ G $. Consider the mapping
+\begin{equation*}
+    \begin{array}{rccc}
+        \phi: & G & \to & G/H \\
+        & g & \mapsto & gH
+    \end{array}
+\end{equation*}
+where $ G/H $ has group structure as given in Theorem \ref{thm:cosets_group_structure}. Let $ x,y\in G $. We see
+\begin{equation*}
+    \phi(xy)=(xy)H=xHyH=\phi(x)\phi(y),
+\end{equation*}
+so $ \phi $ is a homomorphism, surjective by construction. Now let $ k\in\ker(\phi) $. Since $ H $ is the neutral element of $ G/H $, this means $ \phi(k)=kH=H $, which is true if and only if $ k\in H $. Hence, $ \ker(\phi)=H $. The converse is a direct consequence of Theorem \ref{thm:ker_normal_subgroup}.
 \end{proof}
 
 \begin{thm}
@@ -143,7 +168,23 @@ This theorem is also known as the first isomorphism theorem.
 Let $ X $ be a set, and let $ \mathcal{S}(X) $ be the set of all bijections from $ X $ to $ X $. Then, $ (\mathcal{S}(X),\circ) $, where $ \circ $ is composition of mappings, is a group.
 \end{prop}
 \begin{proof}
-\todo{Do this proof!}
+We have three criteria for $ (\mathcal{S}(X),\circ) $ to be a group:
+\begin{enumerate}
+    \item Let $ \sigma,\tau\in\mathcal{S}(X) $. Then, $ \sigma\circ\tau $ is a mapping from $ X $ to $ X $. Let $ x,y\in X $ such that $ (\sigma\circ\tau)(x)=(\sigma\circ\tau)(y) $. Then, since $ \sigma $ and $ \tau $ are injective, we have
+    \begin{align*}
+        \sigma(\tau(x)) &= \sigma(\tau(y)) \\
+        \tau(x) &= \tau(y) \\
+        x &= y,
+    \end{align*}
+    so $ \sigma\circ\tau $ is injective, and any injective mapping from a set to itself is also surjective. Thus, $ \sigma\circ\tau\in\mathcal{S}(X) $, and we know composition of mappings is associative.
+
+    \item The neutral element is naturally the identity mapping $ \id $:
+    \begin{equation*}
+        (\sigma\circ\id)(x)=\sigma(\id(x))=\sigma(x)=\id(\sigma(x))=(\id\circ\,\sigma)(x).
+    \end{equation*}
+
+    \item Since every $ \sigma\in\mathcal{S}(X) $ is injective, every $ \sigma $ has an inverse mapping.\qedhere
+\end{enumerate}
 \end{proof}
 
 \begin{defn}
@@ -154,7 +195,31 @@ Take $ \mathcal{S}(X) $ as defined in Proposition \ref{prop:permutations} for so
 Every group is isomorphic to a permutation group.
 \end{thm}
 \begin{proof}
-\todo{Do this proof!}
+Let $ G $ be a group. For each $ a\in G $, we define a mapping
+\begin{equation*}
+    \begin{array}{rccc}
+        \sigma_a: & G & \to & G \\
+        & g & \mapsto & ag
+    \end{array}.
+\end{equation*}
+For some $ b\in G $, let $ x,y\in G $ such that $ \sigma_b(x)=\sigma_b(y) $. Then, $ bx=by $, so left cancellation implies $ x=y $. Thus, $ \sigma_b $ is injective, and any injective mapping from a set to itself is also surjective, so $ \sigma_b\in\mathcal{S}(G) $.
+
+Now, we define a mapping
+\begin{equation*}
+    \begin{array}{rccc}
+        \phi: & G & \to & \mathcal{S}(G) \\
+        & g & \mapsto & \sigma_g
+    \end{array}.
+\end{equation*}
+Let $ a,b\in G $. Then, for all $ x\in G $, we have
+\begin{equation*}
+    \phi(ab)(x)=\sigma_{ab}(x)=abx=a\sigma_b(x)=\sigma_a(\sigma_b(x))=\phi(a)\circ\phi(b),
+\end{equation*}
+so $ \phi $ is a homomorphism. If $ a\in\ker(\phi) $, then $ \phi(a)=\sigma_a=\id $, which is true if and only if for all $ x\in G $, we have
+\begin{equation*}
+    \phi(a)(x)=\sigma_a(x)=ax=x \iff a=e_G.
+\end{equation*}
+Thus, $ \ker(\phi)=\{e_G\} $, so $ \phi $ is injective. By Proposition \ref{prop:image_subgroup}, $ \im(\phi) $ is a subgroup of $ \mathcal{S}(X) $; hence, we can construct an isomorphism $ \psi:G\to\im(\phi) $.
 \end{proof}
 
 \begin{defn}\label{defn:symmetric_group}
@@ -383,7 +448,9 @@ where $ e_i $ denotes the neutral element of group $ G_i $, together with the la
 \end{cor}
 
 \begin{defn}
-Let $ \{G_i\}_{i\in I} $ be a family of groups for some non-empty index set $ I $. The group $ \prod_{i\in I}G_i $ from Corollary \ref{cor:direct_product} is called the \defnem{direct product} of the $ G_i $s. If the $ G_i $s are abelian, the group $ \bigoplus_{i\in I}G_i $ from Corollary \ref{cor:direct_sum} is called the \defnem{direct sum} of the $ G_i $s.
+Let $ \{G_i\}_{i\in I} $ be a family of groups for some non-empty index set $ I $. The group $ \prod_{i\in I}G_i $ from Corollary \ref{cor:direct_product} is called the \defnem{direct product} of the $ G_i $s.
+
+If the $ G_i $s are abelian, the group $ \bigoplus_{i\in I}G_i $ from Corollary \ref{cor:direct_sum} is called the \defnem{direct sum} of the $ G_i $s.
 \end{defn}
 
 For a finite family of groups $ \{G_1,G_2,\ldots,G_n\} $, we can denote their direct sum as

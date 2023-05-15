@@ -167,7 +167,9 @@ Let $ (R,+,\cdot) $ be a ring, and let $ S\subseteq R $. If $ (S,+,\cdot) $ is a
 Let $ R $ be a ring, and let $ S\subseteq R $, $ S\neq\varnothing $. Then, $ S $ is a subring of $ R $ if and only if for every $ a,b\in S $, we have $ a-b\in S $ and $ ab\in S $.
 \end{thm}
 \begin{proof}
-\todo{Do this proof!}
+For $ S $ to be a ring, $ (S,+) $ must be an abelian group. Since $ S\subseteq R $, this is the case if and only if $ (S,+) $ is a subgroup of $ (R,+) $ which, by Theorem \ref{thm:subgroup}, is true if and only if for all $ a,b\in S $, we have $ a-b\in S $.
+
+Associativity and distributivity of $ \cdot $ follow from the parent ring $ R $. Hence, all that remains is that $ S $ is closed under $ \cdot $, i.e.\ for all $ a,b\in S $, we have $ ab\in S $.
 \end{proof}
 
 \begin{defn}
@@ -190,7 +192,18 @@ is called the \defnem{characteristic} of $ R $.
 The characteristic of an integral domain is either $ 0 $ or prime.
 \end{prop}
 \begin{proof}
-\todo{Do this proof!}
+Let $ R $ be an integral domain, and let $ n=\Char(R) $. If $ n=0 $, we are finished; for the other case, since $ n $ cannot be 1, take $ n>1 $. Suppose $ n $ is not prime. Then, there exist $ p,q\in\mathbb{Z}^+ $, $ p,q<n $ such that $ n=pq $, so
+\begin{align*}
+    0_R &= \underbrace{1_R+\cdots+1_R}_{n\text{ times}}=\underbrace{1_R+\cdots+1_R}_{pq\text{ times}} \\
+    &= \underbrace{(\underbrace{1_R+\cdots+1_R}_{p\text{ times}})+\cdots+(\underbrace{1_R+\cdots+1_R}_{p\text{ times}})}_{q\text{ times}} \\
+    &= \underbrace{(\underbrace{1_R+\cdots+1_R}_{p\text{ times}})1_R+\cdots+(\underbrace{1_R+\cdots+1_R}_{p\text{ times}})1_R}_{q\text{ times}} \\
+    &= (\underbrace{1_R+\cdots+1_R}_{p\text{ times}})(\underbrace{1_R+\cdots+1_R}_{q\text{ times}}).
+\end{align*}
+Since $ R $ is an integral domain, this implies
+\begin{equation*}
+    \underbrace{1_R+\cdots+1_R}_{p\text{ times}}=0_R \quad\text{or}\quad \underbrace{1_R+\cdots+1_R}_{q\text{ times}}=0_R,
+\end{equation*}
+which is a contradiction.
 \end{proof}
 
 \subsection*{Homomorphisms of rings}
