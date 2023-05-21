@@ -186,7 +186,7 @@
 
 \setlist[enumerate]{
     listparindent=\parindent,
-    parsep=\parsep,
+    parsep=\parskip,
     itemsep=\f@size pt,
 	labelindent=0pt,
 	labelwidth=\coop@labelwidth,
