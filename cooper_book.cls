@@ -23,19 +23,16 @@
 
 \newlength{\coop@paperwidth}
 \newlength{\coop@paperheight}
-\newlength{\coop@basemargin}
 
-% A4 as default paper size with 25 mm margins
+% A4 as default paper size
 \setlength{\coop@paperwidth}{210mm}
 \setlength{\coop@paperheight}{297mm}
-\setlength{\coop@basemargin}{25mm}
 
 % Paper size options
 \DeclareOption{a4paper}{}
 \DeclareOption{a5paper}{
     \setlength{\coop@paperwidth}{148mm}
     \setlength{\coop@paperheight}{210mm}
-    \setlength{\coop@basemargin}{20mm}
 }
 \DeclareOption{b5paper}{
     \setlength{\coop@paperwidth}{176mm}
@@ -48,7 +45,6 @@
 \DeclareOption{octavo}{
     \setlength{\coop@paperwidth}{6in}
     \setlength{\coop@paperheight}{9in}
-    \setlength{\coop@basemargin}{20mm}
 }
 
 % Option for double-wide outer margin
@@ -75,6 +71,10 @@
 % Geometry --------------------------------------------------------------------
 
 \RequirePackage{geometry}
+
+% Base margin is 12% of paper width, approx. 25mm for A4
+\newlength{\coop@basemargin}
+\setlength{\coop@basemargin}{\coop@paperwidth*\real{0.12}}
 
 % Calculate outer margin depending on `widemargin` option
 \newlength{\coop@outermargin}
