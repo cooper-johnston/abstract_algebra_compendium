@@ -1,10 +1,13 @@
-\documentclass[b5paper, 10pt]{cooper_book}
-
-\input{math}
+\documentclass[a4paper, 10pt]{ooga-booga}
 
 \usepackage[textsize=footnotesize]{todonotes}
+\usepackage{lmodern}
+\input{math}
 
-% \usepackage{newtx}
+\newcommand{\sectionnumberless}[1]{
+    \section*{#1}
+    \addcontentsline{toc}{section}{#1}
+}
 
 \setcounter{chapter}{-1} % starts chapter count at 0
 
